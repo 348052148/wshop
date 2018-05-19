@@ -15,11 +15,14 @@
     <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/amazeui.min.css']) ?>
     <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/admin.css']) ?>
     <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/app.css']) ?>
+    <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/amazeui.tagsinput.css']) ?>
+
 
     <!-- Scripts -->
     <?= $this->headScript()
         ->appendFile($this->basePath('/assets/js/jquery.min.js'),'text/javascript')
         ->appendFile($this->basePath('/assets/js/amazeui.min.js'),'text/javascript')
+        ->appendFile($this->basePath('/assets/js/amazeui.tagsinput.min.js'),'text/javascript')
 //        ->appendFile($this->basePath('/assets/js/app.js'),'text/javascript')
     ?>
 

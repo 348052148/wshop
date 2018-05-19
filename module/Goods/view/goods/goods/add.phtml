@@ -19,7 +19,7 @@
 
 
             <div class="am-u-sm-12 am-u-md-9">
-                <form method="post" class="am-form am-form-horizontal" action="<?= $this->url('goods', ['action' => 'add']) ?>">
+                <form method="post" onkeydown="if(event.keyCode==13)return false;" class="am-form am-form-horizontal" action="<?= $this->url('goods', ['action' => 'add']) ?>">
                     <div class="am-form-group">
                         <label for="user-name" class="am-u-sm-3 am-form-label">类目 </label>
                         <div class="am-u-sm-9">
@@ -78,7 +78,7 @@
                     <div class="am-form-group">
                         <label for="user-intro" class="am-u-sm-3 am-form-label">标签 </label>
                         <div class="am-u-sm-9">
-                            <textarea class="" rows="5" name="tags" id="user-intro" placeholder="标签"></textarea>
+                            <input class="" style="width: 200px;" rows="5" name="tags" data-am-tagsinput id="tags" placeholder="标签"/>
                             <small>标签...</small>
                         </div>
                     </div>
@@ -121,5 +121,6 @@
             });
             $('#file-list').html(fileNames);
         });
+       $('#tags').tagsinput();
     });
 </script>
