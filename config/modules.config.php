@@ -14,8 +14,8 @@ return [
     'Zend\Router',
     'Zend\Validator',
     'Application',
-    'Shop',
+//    'Shop',
     'Goods',
-    'Trade',
-    'User'
+//    'Trade',
+//    'User'
 ];

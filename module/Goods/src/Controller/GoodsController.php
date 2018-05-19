@@ -3,35 +3,46 @@
 namespace  Goods\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class GoodsController extends AbstractActionController{
 
 
-    public function createGoods(){
-
-    }
-    //上架商品
-    public function listingGoods(){
-
+    public function baseAction(){
+        return new ViewModel();
     }
 
-    public function delistingGoods(){
+    public function addAction(){
+        $method = $this->request->getMethod();
+        if($method == 'GET'){
+            return new ViewModel();
+        }
 
+        if($method == 'POST'){
+//           var_dump($this->request->getPost());
+        }
+        $this->redirect()->toRoute('goods',['action'=>'base']);
     }
 
-    public function searchGoods(){
+    public function editAction(){
+//        echo 'edit';die;
 
+        $id = (int) $this->params()->fromRoute('id', 0);
+
+        if (0 === $id) {
+            return $this->redirect()->toRoute('goods', ['action' => 'add']);
+        }
+
+
+        if($this->request->isPost()){
+            //var_dump($this->request->getPost());
+            return $this->redirect()->toRoute('goods',['action'=>'base']);
+        }
+
+        return new ViewModel([]);
     }
 
-    public function getGoods(){
-
-    }
-
-    public function deleteGoods(){
-
-    }
-
-    public function updateGoods(){
-
+    public function deleteAction(){
+        echo 'del';die;
     }
 }

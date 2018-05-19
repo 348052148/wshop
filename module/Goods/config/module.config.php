@@ -1,18 +1,16 @@
 <?php
 namespace Goods;
-use Zend\Db\Adapter\AdapterInterface;
-use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\TableGateway\TableGateway;
+use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
-//    'controllers' => [
-//        'factories' => [
-//            Controller\AlbumController::class => InvokableFactory::class,
-//        ],
-//    ],
     'controllers' => [
+        'factories' => [
+            Controller\GoodsController::class => InvokableFactory::class,
+        ],
+    ],
+//    'controllers' => [
 //        'factories' => [
 //            Controller\AlbumController::class => function($container) {
 //                return new Controller\AlbumController(
@@ -20,9 +18,9 @@ return [
 //                );
 //            },
 //        ],
-    ],
-    'service_manager' =>[
-        'factories' => [
+//    ],
+//    'service_manager' =>[
+//        'factories' => [
 //            Model\AlbumTable::class => function($container) {
 //                $tableGateway = $container->get(Model\AlbumTableGateway::class);
 //                return new Model\AlbumTable($tableGateway);
@@ -33,23 +31,19 @@ return [
 //                $resultSetPrototype->setArrayObjectPrototype(new Model\Album());
 //                return new TableGateway('album', $dbAdapter, null, $resultSetPrototype);
 //            },
-        ],
-    ],
+//        ],
+//    ],
 
     // The following section is new and should be added to your file:
     'router' => [
         'routes' => [
-            'shop' => [
+            'goods' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/goods[/:action[/:id]]',
-                    'constraints' => [
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ],
+                    'route' => '/goods[/:action]',
                     'defaults' => [
                         'controller' => Controller\GoodsController::class,
-                        'action'     => 'index',
+                        'action'     => 'base',
                     ],
                 ],
             ],
@@ -63,7 +57,7 @@ return [
             'ViewJsonStrategy', //配置view策略
         ],
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+            'goods' => __DIR__ . '/../view',
         ],
     ],
 ];

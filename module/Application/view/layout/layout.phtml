@@ -1,55 +1,89 @@
 <?= $this->doctype() ?>
+<html>
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <?= $this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+<head>
 
-        <?= $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
-        ?>
+    <?= $this->headTitle('电商系统')->setSeparator(' - ')->setAutoEscape(false) ?>
 
-        <!-- Le styles -->
-        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
-            ->prependStylesheet($this->basePath('css/style.css'))
-            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
-            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
-        ?>
+    <?= $this->headMeta()
+        ->appendName('charset', 'utf-8')
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
 
-        <!-- Scripts -->
-        <?= $this->headScript()
-            ->prependFile($this->basePath('js/bootstrap.min.js'))
-            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
-        ?>
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
-                        <img src="<?= $this->basePath('img/zf-logo-mark.svg') ?>" height="28" alt="Zend Framework <?= \Application\Module::VERSION ?>"/>&nbsp;Skeleton Application
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="<?= $this->url('home') ?>">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-            <?= $this->content ?>
-            <hr>
-            <footer>
-                <p>&copy; 2005 - <?= date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
-            </footer>
+    <!-- Le styles -->
+    <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/amazeui.min.css']) ?>
+    <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/admin.css']) ?>
+    <?= $this->headLink(['rel'=>'stylesheet','href'=>'/assets/css/app.css']) ?>
+
+    <!-- Scripts -->
+    <?= $this->headScript()
+        ->appendFile($this->basePath('/assets/js/jquery.min.js'),'text/javascript')
+        ->appendFile($this->basePath('/assets/js/amazeui.min.js'),'text/javascript')
+//        ->appendFile($this->basePath('/assets/js/app.js'),'text/javascript')
+    ?>
+
+</head>
+
+<body data-type="index">
+
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <a href="javascript:;" class="tpl-logo">
+            <img src="/assets/img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+    </div>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+    <?= $this->partial('layout/nav.phtml', [
+
+    ]); ?>
+
+</header>
+
+
+
+
+
+
+
+<div class="tpl-page-container tpl-page-header-fixed">
+
+    <?= $this->partial('layout/sideBar.phtml', [
+
+    ]); ?>
+
+
+    <div class="tpl-content-wrapper">
+
+        <?= $this->partial('layout/topBar.phtml', [
+
+        ]); ?>
+
+        <?= $this->content ?>
+
+    </div>
+
+</div>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="commom-modal">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">Modal 标题
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
         </div>
-        <?= $this->inlineScript() ?>
-    </body>
+        <div class="am-modal-bd">
+            暂无内容
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/app.js"></script>
+</body>
+
 </html>
+

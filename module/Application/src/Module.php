@@ -22,7 +22,7 @@ class Module
     {
         // Register a render event
         $app = $e->getParam('application');
-        $app->getEventManager()->attach('render', [$this, 'registerJsonStrategy'], 100);
+        //$app->getEventManager()->attach('render', [$this, 'registerJsonStrategy'], 100);
     }
 
     /**

@@ -1,12 +1,8 @@
 <?php
 namespace Goods;
 
-use Zend\Db\Adapter\AdapterInterface;
-use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\TableGateway\TableGateway;
 use Zend\EventManager\Event;
 use Zend\EventManager\EventInterface;
-use Zend\Hydrator\Filter\FilterProviderInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
@@ -49,7 +45,6 @@ class Module implements ConfigProviderInterface ,
     ControllerPluginProviderInterface,
     ControllerProviderInterface,
     DependencyIndicatorInterface,
-    FilterProviderInterface,
     FormElementProviderInterface,
     InputFilterProviderInterface,
     LogProcessorProviderInterface,
@@ -59,48 +54,48 @@ class Module implements ConfigProviderInterface ,
 {
     public function getRouteConfig()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getRouteConfig() method.
     }
 
     public function getViewHelperConfig()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getViewHelperConfig() method.
-        return [
-            'template_path_stack' => [
-                'album' => __DIR__ . '/../view',
-            ],
-        ];
+//        return [
+//            'template_path_stack' => [
+//                'album' => __DIR__ . '/../view',
+//            ],
+//        ];
     }
 
     public function getLogProcessorConfig()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getLogProcessorConfig() method.
     }
 
     public function getInputFilterConfig()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getInputFilterConfig() method.
     }
 
     public function getFormElementConfig()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getFormElementConfig() method.
     }
 
     public function getFilter()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getFilter() method.
     }
 
     public function getModuleDependencies()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getModuleDependencies() method. 检查已经加载的模块是否存在。
         return [
           'Application'
@@ -109,20 +104,20 @@ class Module implements ConfigProviderInterface ,
 
     public function getControllerPluginConfig()
     {
-        echo __FUNCTION__."->";
+//        echo __FUNCTION__."->";
         // TODO: Implement getControllerPluginConfig() method.
     }
 
     public function getConfig()
     {
-        echo __FUNCTION__."->"; //进入主应用配置
+//        echo __FUNCTION__."->"; //进入主应用配置
         return include __DIR__ . '/../config/module.config.php';
     }
 
     //配置返回并聚合到serviceManager
     public function getServiceConfig()
     {
-        echo 'Service->';
+//        echo 'Service->';
 //        return [
 //            'factories' => [
 //                Model\AlbumTable::class => function($container) {
@@ -141,7 +136,7 @@ class Module implements ConfigProviderInterface ,
 
     public function getAutoloaderConfig()
     {
-        echo 'Autoload->';
+//        echo 'Autoload->';
         // TODO: Implement getAutoloaderConfig() method. zend/load/autoloadFactory
         //实现自动加载机制
 //        return [
@@ -158,7 +153,7 @@ class Module implements ConfigProviderInterface ,
 
     public function getControllerConfig()
     {
-        echo 'Controller->';
+//        echo 'Controller->';
 //        return [
 //            'factories' => [
 //                Controller\AlbumController::class => function($container) {
@@ -172,7 +167,7 @@ class Module implements ConfigProviderInterface ,
 
     public function init(ModuleManagerInterface $manager)
     {
-        echo 'INIT->';
+//        echo 'INIT->';
         // TODO: Implement init() method. 执行轻量任务
         // Remember to keep the init() method as lightweight as possible
 //        $events = $manager->getEventManager();
@@ -191,57 +186,57 @@ class Module implements ConfigProviderInterface ,
 
     public function onBootstrap(EventInterface $e)
     {
-        $app = $e->getParam('application');
-        $app->getEventManager()->attach('render', [$this, 'registerJsonStrategy'], 100);
-        //设置Layout
-        $app->getEventManager()->attach('dispatch', [$this, 'setLayout']);
-        echo 'Bootstrap->';
+//        $app = $e->getParam('application');
+//        $app->getEventManager()->attach('render', [$this, 'registerJsonStrategy'], 100);
+//        //设置Layout
+//        $app->getEventManager()->attach('dispatch', [$this, 'setLayout']);
+//        echo 'Bootstrap->';
         // TODO: Implement onBootstrap() method. 执行轻量任务  在app bootstrap 事件中触发
     }
 
-    /**
-     * @param  MvcEvent $e The MvcEvent instance
-     * @return void
-     */
-    public function setLayout(MvcEvent $e)
-    {
-        $matches    = $e->getRouteMatch();
-        $controller = $matches->getParam('controller');
-        if (false === strpos($controller, __NAMESPACE__)) {
-            // not a controller from this module
-            return;
-        }
-
-        // Set the layout template
-        $viewModel = $e->getViewModel();
-        $viewModel->setTemplate('content/layout');
-    }
-
-
-    /**
-     * @param  MvcEvent $e The MvcEvent instance
-     * @return void
-     */
-    public function registerJsonStrategy(MvcEvent $e)
-    {
-        $matches    = $e->getRouteMatch();
-        $controller = $matches->getParam('controller');
-        if (false === strpos($controller, __NAMESPACE__)) {
-            // not a controller from this module
-            return;
-        }
-
-        // Potentially, you could be even more selective at this point, and test
-        // for specific controller classes, and even specific actions or request
-        // methods.
-
-        // Set the JSON strategy when controllers from this module are selected
-        $app          = $e->getTarget();
-        $locator      = $app->getServiceManager();
-        $view         = $locator->get('Zend\View\View');
-        $jsonStrategy = $locator->get('ViewJsonStrategy');
-
-        // Attach strategy, which is a listener aggregate, at high priority
-        $view->getEventManager()->attach($jsonStrategy, 100);
-    }
+//    /**
+//     * @param  MvcEvent $e The MvcEvent instance
+//     * @return void
+//     */
+//    public function setLayout(MvcEvent $e)
+//    {
+//        $matches    = $e->getRouteMatch();
+//        $controller = $matches->getParam('controller');
+//        if (false === strpos($controller, __NAMESPACE__)) {
+//            // not a controller from this module
+//            return;
+//        }
+//
+//        // Set the layout template
+//        $viewModel = $e->getViewModel();
+//        $viewModel->setTemplate('content/layout');
+//    }
+//
+//
+//    /**
+//     * @param  MvcEvent $e The MvcEvent instance
+//     * @return void
+//     */
+//    public function registerJsonStrategy(MvcEvent $e)
+//    {
+//        $matches    = $e->getRouteMatch();
+//        $controller = $matches->getParam('controller');
+//        if (false === strpos($controller, __NAMESPACE__)) {
+//            // not a controller from this module
+//            return;
+//        }
+//
+//        // Potentially, you could be even more selective at this point, and test
+//        // for specific controller classes, and even specific actions or request
+//        // methods.
+//
+//        // Set the JSON strategy when controllers from this module are selected
+//        $app          = $e->getTarget();
+//        $locator      = $app->getServiceManager();
+//        $view         = $locator->get('Zend\View\View');
+//        $jsonStrategy = $locator->get('ViewJsonStrategy');
+//
+//        // Attach strategy, which is a listener aggregate, at high priority
+//        $view->getEventManager()->attach($jsonStrategy, 100);
+//    }
 }
