@@ -8,6 +8,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\GoodsController::class => InvokableFactory::class,
+            Controller\GoodsCategoriesController::class => InvokableFactory::class
         ],
     ],
 //    'controllers' => [
@@ -40,13 +41,23 @@ return [
             'goods' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/goods[/:action]',
+                    'route' => '/goods[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\GoodsController::class,
                         'action'     => 'base',
                     ],
                 ],
             ],
+            'category' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route' => '/category[/:action][/:id]',
+                    'defaults' => [
+                        'controller' => Controller\GoodsCategoriesController::class,
+                        'action'     => 'base',
+                    ],
+                ],
+            ]
         ],
     ],
 

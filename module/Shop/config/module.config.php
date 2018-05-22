@@ -1,18 +1,16 @@
 <?php
 namespace Shop;
-use Zend\Db\Adapter\AdapterInterface;
-use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\TableGateway\TableGateway;
+
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
-//    'controllers' => [
-//        'factories' => [
-//            Controller\AlbumController::class => InvokableFactory::class,
-//        ],
-//    ],
     'controllers' => [
+        'factories' => [
+            Controller\ShopController::class => InvokableFactory::class,
+        ],
+    ],
+//    'controllers' => [
 //        'factories' => [
 //            Controller\AlbumController::class => function($container) {
 //                return new Controller\AlbumController(
@@ -20,7 +18,7 @@ return [
 //                );
 //            },
 //        ],
-    ],
+//    ],
     'service_manager' =>[
         'factories' => [
 //            Model\AlbumTable::class => function($container) {
@@ -43,12 +41,8 @@ return [
                 'type'    => Segment::class,
                 'options' => [
                     'route' => '/shop[/:action[/:id]]',
-                    'constraints' => [
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ],
                     'defaults' => [
-                        'controller' => Controller\AlbumController::class,
+                        'controller' => Controller\ShopController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -63,7 +57,7 @@ return [
             'ViewJsonStrategy', //配置view策略
         ],
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+             __DIR__ . '/../view',
         ],
     ],
 ];

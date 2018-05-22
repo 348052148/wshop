@@ -5,23 +5,19 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class GoodsCategoriesController extends AbstractActionController{
 
-    public function getCategories(){
+    public function baseAction(){
 
     }
 
-    public function addCategories(){
+    public function addAction(){
 
     }
 
-    public function deleteCategoies(){
+    public function editAction(){
 
     }
 
-    public function updateCategories(){
-
-    }
-
-    public function searchCategories(){
-
+    public function deleteAction(){
+        
     }
 }

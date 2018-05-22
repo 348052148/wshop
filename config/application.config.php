@@ -61,8 +61,22 @@ return [
     //         'method'          => $stringRequiredMethodName,
     //     ],
     // ],
+    'service_listener_options' => [
+        [
+        'service_manager' => 'MicroServiceManager',
+        'config_key'      => 'microService',
+        'interface'       => 'Service\Feature\MicroServiceProviderInterface',
+        'method'          => 'getMicroServiceConfig',
+        ],
+    ],
 
     // Initial configuration with which to seed the ServiceManager.
     // Should be compatible with Zend\ServiceManager\Config.
     // 'service_manager' => [],
+    'service_manager' => [
+        'factories' => [
+            'MicroServiceManager' => 'Service\Factory\MicroServiceFactory',
+        ]
+    ]
 ];
+

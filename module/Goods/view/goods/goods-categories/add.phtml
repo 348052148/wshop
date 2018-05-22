@@ -1,0 +1,95 @@
+<div class="tpl-portlet-components">
+    <div class="portlet-title">
+        <div class="caption font-green bold">
+            <span class="am-icon-code"></span> 添加商品
+        </div>
+        <div class="tpl-portlet-input tpl-fz-ml">
+            <div class="portlet-input input-small input-inline">
+                <div class="input-icon right">
+                    <i class="am-icon-search"></i>
+                    <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="tpl-block ">
+
+        <div class="am-g tpl-amazeui-form">
+
+
+            <div class="am-u-sm-12 am-u-md-9">
+                <form method="post" onkeydown="if(event.keyCode==13)return false;" class="am-form am-form-horizontal" action="<?= $this->url('goods', ['action' => 'add']) ?>">
+                    <div class="am-form-group">
+                        <label for="user-name" class="am-u-sm-3 am-form-label">上级类目 </label>
+                        <div class="am-u-sm-9">
+                            <select name="categoryPid" data-am-selected="{searchBox: 1}">
+                                <option value="a">休闲零食</option>
+                                <option value="b">水果生鲜</option>
+                                <option value="o">Orange</option>
+                                <option value="m">Mango</option>
+                                <option value="phone">iPhone</option>
+                                <option value="im">iMac</option>
+                                <option value="mbp">Macbook Pro</option>
+                            </select>
+                            <small>商品类目</small>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-email" class="am-u-sm-3 am-form-label">类目名称 </label>
+                        <div class="am-u-sm-9">
+                            <input type="email" id="user-email" name="categoryName" placeholder="商品名称">
+                            <small>类目名称...</small>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <label for="user-phone" class="am-u-sm-3 am-form-label">类目编号 </label>
+                        <div class="am-u-sm-9">
+                            <input type="tel" id="user-phone" name="categoryCode" placeholder="类目编号 ">
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <label for="user-intro" class="am-u-sm-3 am-form-label">属性 </label>
+                        <div class="am-u-sm-9">
+                            <input class="" style="width: 200px;" rows="5" name="categoryTags" data-am-tagsinput id="tags" placeholder="标签"/>
+                            <small>属性...</small>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group am-form-file">
+                        <label for="user-phone" class="am-u-sm-3 am-form-label">类目图片 </label>
+                        <div class="am-u-sm-9">
+                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
+                            <input id="doc-form-file" type="file" multiple>
+                            <div id="file-list"></div>
+                        </div>
+                    </div>
+
+                    <div class="am-form-group">
+                        <div class="am-u-sm-9 am-u-sm-push-3">
+                            <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(function() {
+        $('#doc-form-file').on('change', function() {
+            var fileNames = '';
+            $.each(this.files, function() {
+                fileNames += '<span class="am-badge">' + this.name + '</span> ';
+            });
+            $('#file-list').html(fileNames);
+        });
+       $('#tags').tagsinput();
+    });
+</script>

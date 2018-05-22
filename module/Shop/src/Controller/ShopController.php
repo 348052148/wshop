@@ -6,6 +6,10 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class ShopController extends AbstractActionController{
 
+    public function baseAction(){
+        
+    }
+
     //创建店铺
     public function createShopAction(){
 

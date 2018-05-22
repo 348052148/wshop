@@ -1,0 +1,148 @@
+<div class="tpl-portlet-components">
+<div class="portlet-title">
+    <div class="caption font-green bold">
+        <span class="am-icon-code"></span> 列表
+    </div>
+    <div class="tpl-portlet-input tpl-fz-ml">
+        <div class="portlet-input input-small input-inline">
+            <div class="input-icon right">
+                <i class="am-icon-search"></i>
+                <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="tpl-block">
+    <div class="am-g">
+        <div class="am-u-sm-3 am-u-md-3 am-u-lg-3">
+            <div class="am-btn-toolbar">
+                <div class="am-btn-group am-btn-group-xs">
+                    <a href="<?= $this->url('goods', ['action' => 'add']) ?>" type="button" class="am-btn am-btn-default am-btn-success "><span class="am-icon-plus"></span> 新增</a>
+                    <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>
+                    <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-sm-9 am-u-md-9 am-u-lg-9" style="text-align: right;">
+            <form class="am-form-inline" role="form">
+                <div class="am-form-group">
+                    <input type="text" class="am-form-field" placeholder="商品名"/>
+                </div>
+                &nbsp;
+                <div class="am-form-group">
+                    <input type="text" class="am-form-field" placeholder="sku"/>
+                </div>
+                &nbsp;
+                <div class="am-form-group">
+                    <select data-am-selected="{btnSize: 'sm'}">
+                        <option value="option1">所有类别</option>
+                        <option value="option2">IT业界</option>
+                        <option value="option3">数码产品</option>
+                        <option value="option3">笔记本电脑</option>
+                        <option value="option3">平板电脑</option>
+                        <option value="option3">只能手机</option>
+                        <option value="option3">超极本</option>
+                    </select>
+                </div>
+                &nbsp;
+                <div class="am-form-group">
+                    <button class="am-btn  am-btn-default am-btn-success tpl-am-btn-success am-icon-search" type="button"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <form class="am-form">
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                    <tr>
+                        <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                        <th >订单详情</th>
+                        <th >订单商品</th>
+                        <th >金额</th>
+                        <th>优惠金额</th>
+                        <th >订单变更记录</th>
+                        <th >物流变更记录</th>
+                        <th >买家信息</th>
+                        <th class="table-set">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php for ($i=1;$i<5;$i++) {?>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>
+                            code：YCJ180521003 关联仓单</br>
+                            交易状态：已完成</br>
+                            订单类型：小程序订单</br>
+                            支付方式：微信支付</br>
+                            店铺：重庆上门宝超市有限公司-悠彩郡
+                        </td>
+                        <td>
+                            <img class="img-thumbnail" width="40" src="http://weixin.ismbao.com/tb/140x140/tb/140x140/upload/201805/19/1526698353251849.png"> ￥12 x 1
+                        </td>
+                        <td>
+                           订单金额 ￥ 12
+                        </td>
+                        <td class="am-hide-sm-only">
+                            优惠金额 ￥ 0
+
+                        </td>
+                        <td class="am-hide-sm-only">
+                            下单时间：2018-05-21 07:56:37</br>
+                            支付时间：2018-05-21 07:56:47</br>
+                            拣货时间 / 拣货员：18-05-21 10:08:43 / 873郑玲</br>
+                            拣货完成 / 拣货员：18-05-21 10:08:44 / 873郑玲</br>
+                            发货时间 / 发货员：18-05-21 10:33:33 / 834代渝建</br>
+                            送达时间 / 送货员：18-05-21 10:53:49 / 834代渝建</br>
+                            订单完成 / 收款人：18-05-21 10:53:49 / 完成配送自动收款
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                            地址：重庆市 重庆市 渝北区 东原·香山 东原香山D11一5</br>
+                            电话：15683305666</br>
+                            用户ID：oN6kY0efrQ4TRyliwz90rz7O0_xw</br>
+                            昵称：段yl
+                        </td>
+                        <td>
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <a href="<?= $this->url('goods',['action'=>'edit','id'=>12]) ?>" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</a>
+                                    <a class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</a>
+                                    <a url="<?= $this->url('goods',['action'=>'delete']) ?>" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only js-modal-open"><span class="am-icon-trash-o"></span> 删除</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                     <?php } ?>
+                    </tbody>
+                </table>
+                <div class="am-cf">
+
+                    <div class="am-fr">
+                        <ul class="am-pagination tpl-pagination">
+                            <li class="am-disabled"><a href="#">«</a></li>
+                            <li class="am-active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+<div class="tpl-alert"></div>
+</div>
+
