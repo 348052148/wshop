@@ -5,7 +5,7 @@ namespace  Stock\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class StockController extends AbstractActionController{
+class CommodityStockController extends AbstractActionController{
 
 
     public function baseAction(){
@@ -21,7 +21,7 @@ class StockController extends AbstractActionController{
         if($method == 'POST'){
 //           var_dump($this->request->getPost());
         }
-        $this->redirect()->toRoute('stock',['action'=>'base']);
+        $this->redirect()->toRoute('commodity-stock',['action'=>'base']);
     }
 
     public function editAction(){
@@ -30,13 +30,13 @@ class StockController extends AbstractActionController{
         $id = (int) $this->params()->fromRoute('id', 0);
 
         if (0 === $id) {
-            return $this->redirect()->toRoute('stock', ['action' => 'add']);
+            return $this->redirect()->toRoute('commodity-stock', ['action' => 'add']);
         }
 
 
         if($this->request->isPost()){
             //var_dump($this->request->getPost());
-            return $this->redirect()->toRoute('stock',['action'=>'base']);
+            return $this->redirect()->toRoute('commodity-stock',['action'=>'base']);
         }
 
         return new ViewModel([]);

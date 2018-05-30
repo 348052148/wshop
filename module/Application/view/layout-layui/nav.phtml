@@ -1,0 +1,91 @@
+<div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+		<li class="layui-nav-item"><a href="">仪表盘</a></li>
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">商品管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="<?= $this->url('goods',['action'=>'base']);?>">商品基础信息</a></dd>
+            <dd><a href="<?= $this->url('category',['action'=>'base']);?>">商品分类管理</a></dd>
+            <dd><a href="<?= $this->url('goods',['action'=>'price']);?>">商品价格维护</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">商品库存管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="<?= $this->url('commodity-stock',['action'=>'base']);?>">库存管理</a></dd>
+            <dd><a href="<?= $this->url('commodity-inventory',['action'=>'base']) ?>">商品盘存</a></dd>
+            <dd><a href="<?= $this->url('commodity-loss',['action'=>'base']) ?>">商品报损</a></dd>
+            <dd><a href="<?= $this->url('commodity-balance',['action'=>'base']) ?>">商品结存</a></dd>
+            <dd><a href="<?= $this->url('commodity-bill',['action'=>'base']) ?>">商品出入库单</a></dd>
+            <dd><a href="<?= $this->url('commodity-inventory',['action'=>'base']) ?>">商品不可售记录</a></dd>
+          </dl>
+        </li>
+		<li class="layui-nav-item">
+          <a href="javascript:;">供应商管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">供应商基础信息</a></dd>
+            <dd><a href="javascript:;">供应商商品管理</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">采购商品管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">采购管理</a></dd>
+            <dd><a href="javascript:;">采购清单</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">调货管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">调货管理</a></dd>
+            <dd><a href="javascript:;">调货评价</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">物流管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">物流配送</a></dd>
+            <dd><a href="javascript:;">物流调拨</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">销售管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">销售订单</a></dd>
+            <dd><a href="javascript:;">订单评论</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">营销管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">商品优惠</a></dd>
+            <dd><a href="javascript:;">商品活动</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">用户管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">用户信息</a></dd>
+          </dl>
+        </li>
+		
+		<li class="layui-nav-item">
+          <a href="javascript:;">系统账户管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">账户信息</a></dd>
+            <dd><a href="javascript:;">权限管理</a></dd>
+          </dl>
+        </li>
+      
+        <li class="layui-nav-item"><a href="">系统设置</a></li>
+      </ul>
+    </div>
+  </div>

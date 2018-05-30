@@ -91,13 +91,13 @@ var utils = (function () {
 	});
 
 	/*
-	This should find all Android browsers lower than build 535.19 (both stock browser and webview)
+	This should find all Android browsers lower than build 535.19 (both commodity-stock browser and webview)
 	- galaxy S2 is ok
     - 2.3.6 : `AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1`
     - 4.0.4 : `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S3 is badAndroid (stock brower, webview)
+   - galaxy S3 is badAndroid (commodity-stock brower, webview)
      `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
-   - galaxy S4 is badAndroid (stock brower, webview)
+   - galaxy S4 is badAndroid (commodity-stock brower, webview)
      `AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`
    - galaxy S5 is OK
      `AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36 (Chrome/)`

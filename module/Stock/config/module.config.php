@@ -7,7 +7,7 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return [
     'controllers' => [
         'factories' => [
-            Controller\StockController::class => InvokableFactory::class,
+            Controller\CommodityStockController::class => InvokableFactory::class,
             Controller\CommodityInventoryController::class => InvokableFactory::class,
             Controller\CommodityLossContorlloer::class => InvokableFactory::class,
             Controller\CommodityBalanceController::class => InvokableFactory::class,
@@ -18,50 +18,50 @@ return [
     // The following section is new and should be added to your file:
     'router' => [
         'routes' => [
-            'stock' => [
+            'commodity-stock' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/stock[/:action][/:id]',
+                    'route' => '/commodity-stock[/:action][/:id]',
                     'defaults' => [
-                        'controller' => Controller\StockController::class,
+                        'controller' => Controller\CommodityStockController::class,
                         'action'     => 'base',
                     ],
                 ],
             ],
-            'inventory' => [
+            'commodity-inventory' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/inventory[/:action][/:id]',
+                    'route' => '/commodity-inventory[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\CommodityInventoryController::class,
                         'action'     => 'base',
                     ],
                 ],
             ],
-            'loss' => [
+            'commodity-loss' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/loss[/:action][/:id]',
+                    'route' => '/commodity-loss[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\CommodityLossContorlloer::class,
                         'action'     => 'base',
                     ],
                 ],
             ],
-            'balance' => [
+            'commodity-balance' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/balance[/:action][/:id]',
+                    'route' => '/commodity-balance[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\CommodityBalanceController::class,
                         'action'     => 'base',
                     ],
                 ],
             ],
-            'bill' => [
+            'commodity-bill' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/bill[/:action][/:id]',
+                    'route' => '/commodity-bill[/:action][/:id]',
                     'defaults' => [
                         'controller' => Controller\CommodityBillController::class,
                         'action'     => 'base',

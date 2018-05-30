@@ -1,0 +1,89 @@
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>商品信息</legend>
+</fieldset>
+
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+
+        <div class="layui-input-inline" style="width: 60px;">
+            <a href="<?= $this->url('category',['action'=>'add']) ?>" class="layui-btn ">新增</a>
+        </div>
+
+        <label  style="width:auto;" class="layui-form-label">名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="title" style="width:200px;" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+        </div>
+
+        <label style="width:auto;" class="layui-form-label">日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+        </div>
+
+        <button class="layui-btn layui-btn-normal"><i class="layui-icon layui-icon-search"></i>  搜索</button>
+    </div>
+</form>
+
+<hr>
+
+
+<div class="layui-form">
+    <table class="layui-table">
+        <colgroup>
+            <col >
+            <col >
+            <col >
+            <col >
+            <col width="160" >
+        </colgroup>
+        <thead>
+        <tr>
+            <th>商品信息</th>
+            <th>可售库存</th>
+            <th>冻结库存</th>
+            <th>安全库存值</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                可口可乐魔爪饮料
+
+            </td>
+            <td>
+                120
+
+            </td>
+            <td>
+                2
+            </td>
+            <td>
+                20
+            </td>
+            <td>
+
+                <div class="layui-btn-group">
+                    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+                    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<div id="demo0"></div>
+
+<script>
+    layui.use(['laypage', 'layer'], function(){
+        var laypage = layui.laypage
+            ,layer = layui.layer;
+        //总页数低于页码总数
+        laypage.render({
+            elem: 'demo0'
+            ,count: 50 //数据总数
+        });
+    });
+</script>
