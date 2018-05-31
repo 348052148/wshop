@@ -3,9 +3,10 @@ namespace Service\Domain\repositorys;
 
 use Service\Domain\models\category\Category;
 use Service\Domain\order\Order;
-use Service\Domain\repositorys\RepositorysInterface;
 
 class CategoryRepository implements RepositorysInterface {
+
+    private $tableGateway;
 
     public function getTable()
     {
@@ -15,6 +16,16 @@ class CategoryRepository implements RepositorysInterface {
     public function getEntity()
     {
         return Category::class;
+    }
+
+    public function setTableGateway($tableGateway)
+    {
+        $this->tableGateway = $tableGateway;
+    }
+
+    public function getTableGateway()
+    {
+        return $this->tableGateway;
     }
 
     public function findById($id){
