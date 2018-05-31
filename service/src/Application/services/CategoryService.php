@@ -1,8 +1,8 @@
 <?php
-namespace Servcie\Application\services;
+namespace Service\Application\services;
 
-use Servcie\Domain\models\category\Category;
-use Servcie\Domain\repositorys\CategoryRepository;
+use Service\Domain\models\category\Category;
+use Service\Domain\repositorys\CategoryRepository;
 use UI\dtos\RequestDto;
 
 class CategoryService  {

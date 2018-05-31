@@ -1,4 +1,4 @@
-<form class="layui-form" action="">
+<form class="layui-form" method="post" action="<?= $this->url('goods',['action'=>'add'])?>">
     <div class="layui-form-item">
         <label class="layui-form-label">商品名称</label>
         <div class="layui-input-block">
@@ -9,9 +9,27 @@
     <div class="layui-form-item">
         <label class="layui-form-label">商品子标题</label>
         <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="商品名称" autocomplete="off" class="layui-input">
+            <input type="text" name="subTitle" required  lay-verify="required" placeholder="商品名称" autocomplete="off" class="layui-input">
         </div>
     </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">类目</label>
+        <div class="layui-input-block">
+            <select name="categoryId" lay-verify="required">
+                <option value="1">烟酒饮料</option>
+                <option value="2">水果生鲜</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+            <label class="layui-form-label">市场价</label>
+            <div class="layui-input-block" style="width: 100px;">
+                <input name="originalPrice" placeholder="￥" autocomplete="off" class="layui-input" type="text">
+            </div>
+    </div>
+
 
     <div class="layui-form-item">
         <label class="layui-form-label">商品图片</label>
@@ -27,34 +45,35 @@
     <div class="layui-form-item">
         <label class="layui-form-label">模式</label>
         <div class="layui-input-block">
-            <select name="city" lay-verify="required">
-                <option value="0">自营</option>
-                <option value="1">联营</option>
+            <select name="mode" lay-verify="required">
+                <option value="1">自营</option>
+                <option value="2">联营</option>
             </select>
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">商品类型</label>
+
         <div class="layui-input-block">
-            <input type="checkbox" name="like[write]" title="新品">
-            <input type="checkbox" name="like[read]" title="临期" checked>
-            <input type="checkbox" name="like[dai]" title="淘汰">
-            <input type="checkbox" name="like[dai]" title="热门">
+            <input name="type" value="新品" title="新品" checked="" type="radio">
+            <input name="type" value="临期" title="临期" type="radio">
+            <input name="type" value="淘汰" title="淘汰" type="radio">
         </div>
     </div>
+
 
     <div class="layui-form-item">
         <label class="layui-form-label">是否生效</label>
         <div class="layui-input-block">
-            <input type="checkbox" name="switch" lay-skin="switch">
+            <input type="checkbox" name="isShow" lay-skin="switch">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">商品标签</label>
         <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="商品标签以；分割" autocomplete="off" class="layui-input">
+            <input type="text" name="tags" required  lay-verify="required" placeholder="商品标签以；分割" autocomplete="off" class="layui-input">
         </div>
     </div>
 
@@ -69,7 +88,7 @@
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
+            <button class="layui-btn" >保存</button>
         </div>
     </div>
 </form>
@@ -78,11 +97,32 @@
     //Demo
     layui.use('form', function(){
         var form = layui.form;
+        var $ = layui.jquery;
 
         //监听提交
         form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
+            // layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: "<?= $this->url('goods',['action'=>'add'])?>",
+                contentType: "application/json",
+                data: data.field, //请求的附加参数，用json对象
+                method: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        layer.msg("添加成功", { icon: 6, time: 2000 }, function () {
+
+                        });
+                    }
+                    else {
+                        layer.msg("添加失败", { icon: 5 });
+                    }
+
+                },
+                error: function () {
+                    layer.msg("添加失败", { icon: 5 });
+                }
+            });
+            return false;//只此一句
         });
     });
 

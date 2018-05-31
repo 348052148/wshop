@@ -45,38 +45,43 @@
       </tr> 
     </thead>
     <tbody>
-      <tr>
-        <td>
-            可口可乐魔爪饮料</br>
+    <?php foreach ($list as $v){ ?>
+        <tr>
+            <td>
+                <?= $v->title ?></br>
 
-        </td>
-        <td>
-            规格：
-            <ul>
-                <li>瓶 （1）</li>
-                <li>件 （24）</li>
-            </ul>
-            市场价： ￥4.5
+            </td>
+            <td>
+                规格：
 
-        </td>
-        <td>
-            <ul>
-                <li>可口可乐</li>
-                <li>魔爪</li>
-            </ul>
-        </td>
-        <td>
-            是否自营： 是<br>
-            商品类型： 新品<br>
-        </td>
-		<td>
-		
-  <div class="layui-btn-group">
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-  </div>
-		</td>
-      </tr>
+                <ul>
+                    <?php foreach ($v->specificat as $sp){ ?>
+                    <li><?= $sp['name'] ?> （<?= $sp['units'] ?>）</li>
+                    <?php } ?>
+                </ul>
+                市场价： ￥<?= $v->originalPrice/100 ?>
+
+            </td>
+            <td>
+                <ul>
+                    <?php foreach ($v->tags as $tag){ ?>
+                    <li><?= $tag ?></li>
+                    <?php } ?>
+                </ul>
+            </td>
+            <td>
+                是否自营： <?= $v->mode ?><br>
+                商品类型： <?= $v->type ?><br>
+            </td>
+            <td>
+
+                <div class="layui-btn-group">
+                    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+                    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+                </div>
+            </td>
+        </tr>
+    <?php }?>
 
     </tbody>
   </table>

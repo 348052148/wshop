@@ -1,9 +1,9 @@
 <?php
 namespace Service\Application\services;
 
-use Servcie\Domain\cart\Cart;
-use Servcie\Domain\repositorys\CartRepository;
-use Servcie\Domain\repositorys\GoodsRepository;
+use Service\Domain\cart\Cart;
+use Service\Domain\repositorys\CartRepository;
+use Service\Domain\repositorys\GoodsRepository;
 use UI\dtos\RequestDto;
 
 class CartService {

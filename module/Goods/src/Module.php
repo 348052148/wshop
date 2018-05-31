@@ -177,8 +177,8 @@ class Module implements ConfigProviderInterface ,
 
     public function modulesLoaded(Event $e)
     {
-        $mic = $e->getParam('ServiceManager')->get('MicroServiceManager');
-        var_dump($mic->get('CartService')->test());
+//        $mic = $e->getParam('ServiceManager')->get('MicroServiceManager');
+//        var_dump($mic->get('CartService')->test());
         // This method is called once all modules are loaded.
 //        $moduleManager = $e->getTarget();
 //        $loadedModules = $moduleManager->getLoadedModules();

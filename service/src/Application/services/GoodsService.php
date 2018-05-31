@@ -1,9 +1,7 @@
 <?php
-namespace Servcie\Application\services;
+namespace Service\Application\services;
 
-
-use Service\Domain\goods\Goods;
-use Service\Domain\goods\Specificat;
+use Service\Domain\models\goods\Goods;
 
 class GoodsService  {
 
@@ -16,12 +14,33 @@ class GoodsService  {
 
     public function addGoods($goodsDto){
         $goods = new Goods();
-        $goods->title = $goodsDto->title;
-        $specificat = ['name'=>$goodsDto->specificatName,'units'=>$goodsDto->specificatUnits];
+        $goods->title = $goodsDto['title'];
+        $goods->subTitle = $goodsDto['subTitle'];
+        $goods->type = $goodsDto['type'];
+        $goods->originalPrice = $goodsDto['originalPrice'];
+        $goods->sku = $goodsDto['sku'];
+        $goods->categoryId = intval($goodsDto['categoryId']);
+        $goods->mode = $goodsDto['mode'];
+        $goods->tags = explode(';',$goodsDto['tags']);
+        $goods->desc = $goodsDto['desc'];
 
-        array_push($goods->specificat,$specificat);
+        $this->repository->save($goods);
 
-        $goods->categoryId = $goodsDto->categoryId;
+        return $goods;
+    }
+
+    public function updateGoods($goodsDto){
+        $goods = new Goods();
+
+        $goods->title = $goodsDto['title'];
+        $goods->subTitle = $goodsDto['subTitle'];
+        $goods->type = $goodsDto['type'];
+        $goods->originalPrice = $goodsDto['originalPrice'];
+        $goods->sku = $goodsDto['sku'];
+        $goods->categoryId = intval($goodsDto['categoryId']);
+        $goods->mode = $goodsDto['mode'];
+        $goods->tags = explode(';',$goodsDto['tags']);
+        $goods->desc = $goodsDto['desc'];
 
         $this->repository->save($goods);
 
@@ -29,7 +48,7 @@ class GoodsService  {
     }
 
     public function goodsLst(){
-        $goodsLst = $this->goodsRepository->findAll();
+        $goodsLst = $this->repository->findAll();
         return $goodsLst;
     }
 

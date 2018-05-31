@@ -1,7 +1,7 @@
 <?php
-namespace Servcie\Application\services;
+namespace Service\Application\services;
 
-use Servcie\Domain\repositorys\UserRepository;
+use Service\Domain\repositorys\UserRepository;
 use UI\dtos\RequestDto;
 
 class UserService {

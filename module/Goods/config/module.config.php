@@ -7,7 +7,10 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 return [
     'controllers' => [
         'factories' => [
-            Controller\GoodsController::class => InvokableFactory::class,
+            Controller\GoodsController::class => function($container){
+                $mic = $container->get('MicroServiceManager');
+                return new Controller\GoodsController($mic->get('GoodsService'));
+            },
             Controller\GoodsCategoriesController::class => InvokableFactory::class
         ],
     ],

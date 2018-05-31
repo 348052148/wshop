@@ -1,5 +1,5 @@
 <?php
-namespace Service\Domain\goods;
+namespace Service\Domain\models\goods;
 
 class GoodsService {
 

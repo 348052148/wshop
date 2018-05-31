@@ -1,8 +1,8 @@
 <?php
 namespace Service\Domain\repositorys;
 
-use Service\Domain\goods\Goods;
-use Service\Domain\order\Order;
+
+use Service\Domain\models\goods\Goods;
 use Zend\Db\Exception\RuntimeException;
 
 class GoodsRepository implements RepositorysInterface {
@@ -45,11 +45,13 @@ class GoodsRepository implements RepositorysInterface {
             'title'  => $goods->title,
             'subTitle'  => $goods->subTitle,
             'pic'  => $goods->pic,
-            'originalPrice'  => $goods->originalPrice,
+            'originalPrice'  => $goods->originalPrice*100,
             'categoryId'  => $goods->categoryId,
             'type'  => $goods->type,
+            'mode' =>$goods->mode,
+            'tags' => implode(';',$goods->tags),
             'specif' => $specif,
-            'specifTitle' => $specifTitle
+            'specifTitle' => $specifTitle,
         ];
 
         $id = (int) $goods->id;

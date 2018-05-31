@@ -1,6 +1,6 @@
 <?php
 namespace Service;
-use Servcie\Application\services\GoodsService;
+use Service\Application\services\GoodsService;
 use Service\Domain\repositorys\CartRepository;
 use Service\Domain\repositorys\CategoryRepository;
 use Service\Domain\repositorys\GoodsRepository;

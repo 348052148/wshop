@@ -1,5 +1,5 @@
 <?php
-namespace Service\Domain\goods;
+namespace Service\Domain\models\goods;
 
 class Goods  {
     public $id;
@@ -11,7 +11,9 @@ class Goods  {
     public $originalPrice; //原价
     public $categoryId;
     public $type;
+    public $mode;
     public $tags;
+    public $desc;
 
     public function __construct()
     {
@@ -29,6 +31,8 @@ class Goods  {
         $this->categoryId = !empty($data['categoryId']) ? $data['categoryId'] : null;
         $this->type = !empty($data['type']) ? $data['type'] : null;
         $this->tags = !empty($data['tags']) ? explode(';',$data['tags']) : [];
+        $this->mode = !empty($data['mode']) ? $data['mode'] : [];
+        $this->desc = !empty($data['desc']) ? $data['desc'] : [];
 
         $this->specificat = [];
         $specifArr = !empty($data['specif']) ? explode(':',$data['specif']) : [];
