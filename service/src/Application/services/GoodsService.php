@@ -4,7 +4,6 @@ namespace Servcie\Application\services;
 use Servcie\Domain\goods\Goods;
 use Servcie\Domain\goods\Specificat;
 use Servcie\Domain\repositorys\GoodsRepository;
-use UI\dtos\RequestDto;
 
 class GoodsService  {
 
@@ -13,7 +12,7 @@ class GoodsService  {
         $this->goodsRepository = new GoodsRepository();
     }
 
-    public function addGoods(RequestDto $goodsDto){
+    public function addGoods($goodsDto){
         $goods = new Goods();
         $goods->title = $goodsDto->title;
         $specificat = new Specificat($goodsDto->specificatName,$goodsDto->specificatUnits);
@@ -25,7 +24,7 @@ class GoodsService  {
         return $goods;
     }
 
-    public function goodsLst(RequestDto $goodsDto){
+    public function goodsLst($goodsDto){
         $goodsLst = $this->goodsRepository->findAll();
         return $goodsLst;
     }

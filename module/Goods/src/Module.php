@@ -167,15 +167,18 @@ class Module implements ConfigProviderInterface ,
 
     public function init(ModuleManagerInterface $manager)
     {
+//        var_dump($manager->getEventManager());
 //        echo 'INIT->';
         // TODO: Implement init() method. 执行轻量任务
         // Remember to keep the init() method as lightweight as possible
-//        $events = $manager->getEventManager();
-//        $events->attach('loadModules.post', [$this, 'modulesLoaded']);
+        $events = $manager->getEventManager();
+        $events->attach('loadModules.post', [$this, 'modulesLoaded']);
     }
 
     public function modulesLoaded(Event $e)
     {
+        $mic = $e->getParam('ServiceManager')->get('MicroServiceManager');
+        var_dump($mic->get('CartService')->test());
         // This method is called once all modules are loaded.
 //        $moduleManager = $e->getTarget();
 //        $loadedModules = $moduleManager->getLoadedModules();

@@ -1,8 +1,8 @@
 <?php
-namespace Servcie\Domain\repositorys;
+namespace Service\Domain\repositorys;
 
-use Servcie\Domain\goods\Goods;
-use Servcie\Domain\order\Order;
+use Service\Domain\goods\Goods;
+use Service\Domain\order\Order;
 use Service\Domain\repositorys\RepositorysInterface;
 
 class GoodsRepository implements RepositorysInterface {

@@ -25,8 +25,8 @@
 		<li class="layui-nav-item">
           <a href="javascript:;">供应商管理</a>
           <dl class="layui-nav-child">
-            <dd><a href="javascript:;">供应商基础信息</a></dd>
-            <dd><a href="javascript:;">供应商商品管理</a></dd>
+            <dd><a href="<?= $this->url('supplier',['action'=>'base']) ?>">供应商基础信息</a></dd>
+            <dd><a href="<?= $this->url('supplier-commodity',['action'=>'base']) ?>">供应商商品管理</a></dd>
           </dl>
         </li>
 		
@@ -74,6 +74,7 @@
           <a href="javascript:;">用户管理</a>
           <dl class="layui-nav-child">
             <dd><a href="javascript:;">用户信息</a></dd>
+            <dd><a href="javascript:;">用户购物车</a></dd>
           </dl>
         </li>
 		

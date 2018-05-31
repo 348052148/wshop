@@ -1,7 +1,7 @@
 <?php
-namespace Servcie\Domain\user;
+namespace Service\Domain\user;
 
-use Servcie\Domain\repositorys\UserRepository;
+use Service\Domain\repositorys\UserRepository;
 
 class UserService {
 

@@ -8,6 +8,14 @@ use UI\dtos\RequestDto;
 
 class CartService {
 
+    private $repository;
+
+    public function __construct($repository)
+    {
+        $this->repository = $repository;
+    }
+
+
     public function addGoodsToCart(RequestDto $goodsDto){
         $goodsRepository = new GoodsRepository();
         $goods = $goodsRepository->findById($goodsDto->sku);
@@ -34,5 +42,9 @@ class CartService {
         $cart->removeGoods($goodsDto->goodsId);
 
         $cartRepository->store($cart);
+    }
+
+    public function test(){
+       var_dump($this->repository);
     }
 }

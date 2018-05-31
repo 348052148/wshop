@@ -1,5 +1,5 @@
 <?php
-namespace Servcie\Domain\order;
+namespace Service\Domain\order;
 /**
  * 值对象订单状态
  * Class OrderStatus

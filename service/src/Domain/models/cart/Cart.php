@@ -1,8 +1,8 @@
 <?php
-namespace Servcie\Domain\cart;
+namespace Service\Domain\cart;
 
-use Servcie\Domain\goods\Goods;
-use Servcie\Domain\models\cart\CartItem;
+use Service\Domain\goods\Goods;
+use Service\Domain\models\cart\CartItem;
 
 class Cart {
     private $id;

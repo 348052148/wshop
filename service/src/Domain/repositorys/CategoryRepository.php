@@ -1,8 +1,8 @@
 <?php
-namespace Servcie\Domain\repositorys;
+namespace Service\Domain\repositorys;
 
-use Servcie\Domain\models\category\Category;
-use Servcie\Domain\order\Order;
+use Service\Domain\models\category\Category;
+use Service\Domain\order\Order;
 use Service\Domain\repositorys\RepositorysInterface;
 
 class CategoryRepository implements RepositorysInterface {

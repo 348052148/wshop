@@ -1,5 +1,5 @@
 <?php
-namespace Servcie\Domain\models\cart;
+namespace Service\Domain\models\cart;
 
 class CartItem {
     private $goods;

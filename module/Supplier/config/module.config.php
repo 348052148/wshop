@@ -8,6 +8,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\SupplierController::class => InvokableFactory::class,
+            Controller\SupplierCommodityController::class => InvokableFactory::class
         ],
     ],
 //    'controllers' => [
@@ -47,6 +48,16 @@ return [
                     ],
                 ],
             ],
+            'supplier-commodity' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route' => '/supplier-commodity[/:action[/:id]]',
+                    'defaults' => [
+                        'controller' => Controller\SupplierCommodityController::class,
+                        'action'     => 'base',
+                    ],
+                ],
+            ]
         ],
     ],
 

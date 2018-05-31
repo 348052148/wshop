@@ -1,5 +1,5 @@
 <?php
-namespace Servcie\Domain\order;
+namespace Service\Domain\order;
 /**
  * 值对象 订单支付类型
  * Class PayStatus

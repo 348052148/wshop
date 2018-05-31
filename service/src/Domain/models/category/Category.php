@@ -1,5 +1,5 @@
 <?php
-namespace Servcie\Domain\models\category;
+namespace Service\Domain\models\category;
 
 class Category {
     private $id;

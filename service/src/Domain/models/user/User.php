@@ -1,8 +1,8 @@
 <?php
-namespace Servcie\Domain\user;
+namespace Service\Domain\user;
 
-use Servcie\Domain\cart\Cart;
-use Servcie\Domain\order\Order;
+use Service\Domain\cart\Cart;
+use Service\Domain\order\Order;
 
 class User {
     private $id;

@@ -1,7 +1,7 @@
 <?php
-namespace Servcie\Domain\order;
+namespace Service\Domain\order;
 
-use Servcie\Domain\goods\Goods;
+use Service\Domain\goods\Goods;
 
 class Order {
     private $id;

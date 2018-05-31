@@ -1,8 +1,7 @@
 <?php
-namespace Servcie\Domain\repositorys;
+namespace Service\Domain\repositorys;
 
-use Servcie\Domain\user\User;
-use Service\Domain\repositorys\RepositorysInterface;
+use Service\Domain\user\User;
 
 class UserRepository implements RepositorysInterface {
 

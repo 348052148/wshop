@@ -1,7 +1,7 @@
 <?php
-namespace Servcie\Domain\repositorys;
+namespace Service\Domain\repositorys;
 
-use Servcie\Domain\order\Order;
+use Service\Domain\order\Order;
 use Service\Domain\repositorys\RepositorysInterface;
 
 class OrderRepository implements RepositorysInterface {
