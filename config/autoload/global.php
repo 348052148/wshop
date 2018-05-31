@@ -12,5 +12,9 @@
  */
 
 return [
-    // ...
+
+    'db'=>[
+        'driver'   => 'pdo',
+        'dsn'    => sprintf('sqlite:%s/data/wshop.db', realpath(getcwd())),
+    ]
 ];

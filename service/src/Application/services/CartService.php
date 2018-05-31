@@ -45,6 +45,6 @@ class CartService {
     }
 
     public function test(){
-       var_dump($this->repository);
+       var_dump(iterator_to_array($this->repository->findAll()));
     }
 }

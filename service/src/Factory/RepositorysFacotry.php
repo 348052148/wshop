@@ -2,7 +2,6 @@
 namespace Service\Factory;
 
 use Interop\Container\ContainerInterface;
-use Servcie\Domain\repositorys\CartRepository;
 use Zend\Db\Adapter\AdapterInterface;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
@@ -15,30 +14,35 @@ class RepositorysFacotry implements FactoryInterface{
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        var_dump($requestedName);
-//        $repositorys = (null === $options) ? new $requestedName : new $requestedName($options);
-//        var_dump(class_exists(CartRepository::class));
-//        var_dump($repositorys);
-//        $entityClass = $repositorys->getEntity();
-//        $tableName = $repositorys->getTable();
 
-        return new CartRepository();
+        $repositorys = (null === $options) ? new $requestedName : new $requestedName($options);
+
+        $entityClass = $repositorys->getEntity();
+        $tableName = $repositorys->getTable();
+
+//        var_dump($repositorys);
 
         $dbAdapter = $container->get(AdapterInterface::class);
 
+//        var_dump($dbAdapter->query('select * from cart'));
+
+
         $resultSetPrototype = new ResultSet();
 
+//        var_dump($resultSetPrototype);
+
+//        var_dump(class_exists($entityClass));
 
         $resultSetPrototype->setArrayObjectPrototype(new $entityClass());
 
-        return new TableGateway($tableName, $dbAdapter, null, $resultSetPrototype);
+
+        $table = new TableGateway($tableName, $dbAdapter, null, $resultSetPrototype);
+
+//        var_dump($table);
 
 
+        $repositorys->setTableGateway($table);
 
-//        var_dump($repositorys);die;
-
-
-
-//        return 123;
+        return $repositorys;
     }
 }

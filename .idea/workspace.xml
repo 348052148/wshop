@@ -3,30 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ea312396-00c4-452a-97e6-71e916043f2b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/Application/view/layout-layui/nav.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/module/Application/view/layout-layui/nav.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/Goods/src/Module.php" beforeDir="false" afterPath="$PROJECT_DIR$/module/Goods/src/Module.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/Stock/view/stock/commodity-inventory/base.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/module/Stock/view/stock/commodity-inventory/base.phtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/Supplier/config/module.config.php" beforeDir="false" afterPath="$PROJECT_DIR$/module/Supplier/config/module.config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module/Supplier/view/supplier/supplier/base.phtml" beforeDir="false" afterPath="$PROJECT_DIR$/module/Supplier/view/supplier/supplier/base.phtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/autoload/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/autoload/global.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/Application/services/CartService.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Application/services/CartService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Application/services/GoodsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Application/services/GoodsService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/cart/CartItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/cart/CartItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/category/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/category/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/goods/Goods.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/goods/Goods.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/goods/GoodsService.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/goods/GoodsService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/goods/Specificat.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/goods/Specificat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/order/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/order/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/order/OrderStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/order/OrderStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/order/PayStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/order/PayStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/user/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/user/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/models/user/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/models/user/UserService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/repositorys/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/repositorys/CategoryRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/repositorys/GoodsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/repositorys/GoodsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/repositorys/OrderRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/repositorys/OrderRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Domain/repositorys/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/repositorys/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/Factory/MicroServiceFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Factory/MicroServiceFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/src/Domain/repositorys/RepositorysInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Domain/repositorys/RepositorysInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,92 +25,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CartItem.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/cart/CartItem.php">
+      <file leaf-file-name="global.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/autoload/global.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="120">
+              <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/category/Category.php">
+      <file leaf-file-name="CartRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="521">
+              <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+              <folding>
+                <element signature="e#48#84#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Goods.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/goods/Goods.php">
+      <file leaf-file-name="ResultSet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/ResultSet/ResultSet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="251">
+              <caret line="104" column="27" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoodsService.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/goods/GoodsService.php">
+      <file leaf-file-name="CartService.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/service/src/Application/services/CartService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="446">
+              <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Specificat.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/goods/Specificat.php">
+      <file leaf-file-name="RepositorysFacotry.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="446">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+              <folding>
+                <element signature="e#34#75#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/order/Order.php">
+      <file leaf-file-name="AdapterServiceFactory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/AdapterServiceFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            <state relative-caret-position="300">
+              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderStatus.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/order/OrderStatus.php">
+      <file leaf-file-name="Adapter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/Adapter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="2775">
+              <caret line="191" column="56" selection-start-line="191" selection-start-column="50" selection-end-line="191" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PayStatus.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/order/PayStatus.php">
+      <file leaf-file-name="Cart.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/user/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserService.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/service/src/Domain/models/user/UserService.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="101">
+              <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -155,6 +124,9 @@
       <find />
       <find>Service</find>
       <find>Servcie</find>
+      <find>fun</find>
+      <find />
+      <find />
     </findStrings>
     <replaceStrings>
       <replace>Service</replace>
@@ -166,15 +138,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vendor/zendframework/zend-mvc/src/Service/ModuleManagerFactory.php" />
-        <option value="$PROJECT_DIR$/module/Sale/src/Controller/SaleBillController.php" />
-        <option value="$PROJECT_DIR$/service/src/MicroServiceFactory.php" />
-        <option value="$PROJECT_DIR$/service/src/Feature/MicroServiceProviderInterface.php" />
         <option value="$PROJECT_DIR$/service/src/Application/services/OrderService.php" />
         <option value="$PROJECT_DIR$/service/src/Application/services/CategoryService.php" />
         <option value="$PROJECT_DIR$/service/src/Application/services/UserService.php" />
         <option value="$PROJECT_DIR$/module/Sale/src/Module.php" />
-        <option value="$PROJECT_DIR$/service/src/Domain/repositorys/RepositorysInterface.php" />
         <option value="$PROJECT_DIR$/module/Application/view/layout-layui/layout.phtml" />
         <option value="$PROJECT_DIR$/module/Goods/view/goods/goods/add.phtml" />
         <option value="$PROJECT_DIR$/module/Goods/view/goods/goods/base.phtml" />
@@ -198,15 +165,11 @@
         <option value="$PROJECT_DIR$/service/src/Factory/MicroServiceFactory.php" />
         <option value="$PROJECT_DIR$/service/src/Factory/ServiceFacotry.php" />
         <option value="$PROJECT_DIR$/module/Goods/src/Module.php" />
-        <option value="$PROJECT_DIR$/service/src/Application/services/CartService.php" />
-        <option value="$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php" />
-        <option value="$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php" />
         <option value="$PROJECT_DIR$/service/src/Config/config.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/repositorys/CategoryRepository.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/repositorys/GoodsRepository.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/repositorys/OrderRepository.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/repositorys/UserRepository.php" />
-        <option value="$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/models/cart/CartItem.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/models/category/Category.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/models/goods/Goods.php" />
@@ -217,6 +180,15 @@
         <option value="$PROJECT_DIR$/service/src/Domain/models/order/PayStatus.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/models/user/User.php" />
         <option value="$PROJECT_DIR$/service/src/Domain/models/user/UserService.php" />
+        <option value="$PROJECT_DIR$/service/src/Domain/repositorys/RepositorysInterface.php" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/config/autoload/global.php" />
+        <option value="$PROJECT_DIR$/data/cart.sql" />
+        <option value="$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php" />
+        <option value="$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/Adapter.php" />
+        <option value="$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php" />
+        <option value="$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php" />
+        <option value="$PROJECT_DIR$/service/src/Application/services/CartService.php" />
       </list>
     </option>
   </component>
@@ -279,6 +251,11 @@
             <path>
               <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
               <item name="wshop" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wshop" type="462c0819:PsiDirectoryNode" />
               <item name="module" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -304,7 +281,8 @@
               <item name="wshop" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Config" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
@@ -354,24 +332,6 @@
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wshop" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wshop" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="repositorys" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -380,6 +340,41 @@
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Factory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wshop" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wshop" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="zendframework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wshop" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="zendframework" type="462c0819:PsiDirectoryNode" />
+              <item name="zend-db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wshop" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="zendframework" type="462c0819:PsiDirectoryNode" />
+              <item name="zend-db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wshop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wshop" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="zendframework" type="462c0819:PsiDirectoryNode" />
+              <item name="zend-db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ResultSet" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -447,12 +442,12 @@
       <workItem from="1526951271554" duration="1937000" />
       <workItem from="1527679528538" duration="3895000" />
       <workItem from="1527685049855" duration="4556000" />
-      <workItem from="1527729276382" duration="7889000" />
+      <workItem from="1527729276382" duration="14403000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68271000" />
+    <option name="totallyTimeSpent" value="74785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
@@ -491,123 +486,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/Supplier/src/Controller/SupplierCommodityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Supplier/view/supplier/supplier-commodity/base.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="5" lean-forward="true" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Supplier/config/module.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/layout-layui/nav.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Application/services/GoodsService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="e#47#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Module.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Shop/src/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2869" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Goods/src/Controller/GoodsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Shop/src/Controller/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/modules.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1203">
-          <caret line="179" column="51" selection-start-line="179" selection-start-column="39" selection-end-line="179" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-mvc/src/Controller/AbstractActionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="18" column="56" lean-forward="true" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-eventmanager/src/EventManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4455" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-mvc/src/RouteListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-mvc/src/ModuleRouteListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="56" column="19" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-modulemanager/src/Listener/ServiceListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4113" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-modulemanager/src/Listener/DefaultListenerAggregate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="122" column="75" selection-start-line="122" selection-start-column="60" selection-end-line="122" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-mvc/src/Application.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-514">
@@ -706,37 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#34#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Application/services/CartService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/CategoryRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -767,45 +614,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/RepositorysInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/cart/CartItem.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/category/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/goods/Goods.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -853,8 +665,199 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/Domain/models/user/UserService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="240">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/RepositorysInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/cart.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/category/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/goods/Goods.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/ParameterContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4770" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Application/services/CategoryService.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/cart/CartItem.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#25#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/modules.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/autoload/global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/TableGateway/TableGateway.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/TableGateway/AbstractTableGateway.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="222" column="11" lean-forward="true" selection-start-line="222" selection-start-column="11" selection-end-line="222" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/AdapterInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="129" column="63" selection-start-line="129" selection-start-column="50" selection-end-line="129" selection-end-column="63" />
+          <folding>
+            <element signature="e#24#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/autoload/zend-developer-tools.local-development.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/development.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/AdapterServiceFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/Driver/DriverInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/PDO/PDO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1103" column="6" selection-start-line="1103" selection-start-column="6" selection-end-line="1103" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/Driver/Pdo/Pdo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="252" column="13" lean-forward="true" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/Adapter/Adapter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2775">
+          <caret line="191" column="56" selection-start-line="191" selection-start-column="50" selection-end-line="191" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Domain/models/cart/Cart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Factory/RepositorysFacotry.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#34#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zend-db/src/ResultSet/ResultSet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="104" column="27" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Domain/repositorys/CartRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+          <folding>
+            <element signature="e#48#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/src/Application/services/CartService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
         </state>
       </provider>
     </entry>
