@@ -1,7 +1,9 @@
 <?php
 namespace Service\Domain\models\goods;
 
-class Goods  {
+use Service\Domain\models\EntityInterface;
+
+class Goods  implements EntityInterface {
     public $id;
     public $sku;
     public $title;
@@ -40,6 +42,32 @@ class Goods  {
         foreach ($specifArr as $i=>$specif){
             $this->specificat[] = ['name'=>$specifTitle[$i],'units'=>$specif];
         }
+    }
+
+    public function exchangeData()
+    {
+        $specif = '';
+        $specifTitle = '';
+
+        foreach ($this->specificat as $specifcat){
+            $specif .= $specifcat->units.":";
+            $specifTitle .= $specifcat->name;
+        }
+
+        $data = [
+            'sku' => $this->sku,
+            'title'  => $this->title,
+            'subTitle'  => $this->subTitle,
+            'pic'  => $this->pic,
+            'originalPrice'  => $this->originalPrice*100,
+            'categoryId'  => $this->categoryId,
+            'type'  => $this->type,
+            'mode' =>$this->mode,
+            'tags' => implode(';',$this->tags),
+            'specif' => $specif,
+            'specifTitle' => $specifTitle,
+        ];
+        return $data;
     }
 
 

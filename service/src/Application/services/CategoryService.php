@@ -31,6 +31,10 @@ class CategoryService  {
         return $category;
     }
 
+    /**
+     * 获取类目列表
+     * @return mixed
+     */
     public function categoryLst(){
 
         $categoryLst = $this->repository->findAll();

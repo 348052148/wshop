@@ -1,126 +1,134 @@
-<div class="tpl-portlet-components">
-    <div class="portlet-title">
-        <div class="caption font-green bold">
-            <span class="am-icon-code"></span> 添加商品
-        </div>
-        <div class="tpl-portlet-input tpl-fz-ml">
-            <div class="portlet-input input-small input-inline">
-                <div class="input-icon right">
-                    <i class="am-icon-search"></i>
-                    <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
-            </div>
-        </div>
-
-
-    </div>
-    <div class="tpl-block ">
-
-        <div class="am-g tpl-amazeui-form">
-
-
-            <div class="am-u-sm-12 am-u-md-9">
-                <form method="post" onkeydown="if(event.keyCode==13)return false;" class="am-form am-form-horizontal" action="<?= $this->url('goods', ['action' => 'add']) ?>">
-                    <div class="am-form-group">
-                        <label for="user-name" class="am-u-sm-3 am-form-label">类目 </label>
-                        <div class="am-u-sm-9">
-                            <select data-am-selected="{searchBox: 1}">
-                                <option value="a">休闲零食</option>
-                                <option value="b">水果生鲜</option>
-                                <option value="o">Orange</option>
-                                <option value="m">Mango</option>
-                                <option value="phone">iPhone</option>
-                                <option value="im">iMac</option>
-                                <option value="mbp">Macbook Pro</option>
-                            </select>
-                            <small>商品类目</small>
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="user-email" class="am-u-sm-3 am-form-label">商品名称 </label>
-                        <div class="am-u-sm-9">
-                            <input type="email" id="user-email" name="goodsTitle" placeholder="商品名称">
-                            <small>商品名称...</small>
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="user-phone" class="am-u-sm-3 am-form-label">商品子标题 </label>
-                        <div class="am-u-sm-9">
-                            <input type="tel" id="user-phone" name="goodsSubTitle" placeholder="商品子标题 ">
-                        </div>
-                    </div>
-
-                    <div class="am-form-group am-form-file">
-                        <label for="user-phone" class="am-u-sm-3 am-form-label">商品图片 </label>
-                        <div class="am-u-sm-9">
-                        <button type="button" class="am-btn am-btn-danger am-btn-sm">
-                            <i class="am-icon-cloud-upload"></i> 选择要上传的图片</button>
-                            <input id="doc-form-file" type="file" multiple>
-                            <div id="file-list"></div>
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="user-QQ" class="am-u-sm-3 am-form-label">条码</label>
-                        <div class="am-u-sm-9">
-                            <input type="number" name="barcode" pattern="[0-9]*" id="user-QQ" placeholder="条码">
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="user-weibo" class="am-u-sm-3 am-form-label">市场价 </label>
-                        <div class="am-u-sm-9">
-                            <input type="text" id="user-weibo" placeholder="市场价 ">
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="user-intro" class="am-u-sm-3 am-form-label">标签 </label>
-                        <div class="am-u-sm-9">
-                            <input class="" style="width: 200px;" rows="5" name="tags" data-am-tagsinput id="tags" placeholder="标签"/>
-                            <small>标签...</small>
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <label for="user-weibo" class="am-u-sm-3 am-form-label">模式 </label>
-                        <div class="am-u-sm-9">
-                            <select name="mode" >
-                                <option value="option1">自营</option>
-                                <option value="option2">联营</option>
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="am-form-group">
-                        <label for="user-weibo" class="am-u-sm-3 am-form-label">  保质期（天） </label>
-                        <div class="am-u-sm-9">
-                            <input type="text" name="qualityDate" id="user-weibo" placeholder="  保质期（天）">
-                        </div>
-                    </div>
-
-                    <div class="am-form-group">
-                        <div class="am-u-sm-9 am-u-sm-push-3">
-                            <button type="submit" class="am-btn am-btn-primary">保存修改</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+<form class="layui-form" method="post" action="<?= $this->url('shop',['action'=>'add'])?>">
+    <div class="layui-form-item">
+        <label class="layui-form-label">店铺名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="shopName" required  lay-verify="required" placeholder="店铺名称" autocomplete="off" class="layui-input">
         </div>
     </div>
 
-</div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">店铺别名</label>
+        <div class="layui-input-block">
+            <input type="text" name="shopAlias" required  lay-verify="required" placeholder="店铺别名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">店铺类型</label>
+        <div class="layui-input-block">
+            <select name="shopType" lay-verify="required">
+                <option value="1">仓库</option>
+                <option value="2">临售点</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">店铺地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="shopAddress" required  lay-verify="required" placeholder="店铺地址" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">电话</label>
+        <div class="layui-input-block">
+            <input type="text" name="shopTel" required  lay-verify="required" placeholder="电话" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">店铺负责人</label>
+        <div class="layui-input-block">
+            <input type="text" name="shopLeading" required  lay-verify="required" placeholder="店铺负责人" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">运费</label>
+        <div class="layui-input-block" style="width: 100px;">
+            <input name="shopLogic" placeholder="￥" autocomplete="off" class="layui-input" type="text">
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">店铺展示图</label>
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn" id="test2">商品图片上传</button>
+            <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                预览图：
+                <div class="layui-upload-list" id="demo2"></div>
+            </blockquote>
+        </div>
+        <div id="shopPic">
+
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" >保存</button>
+        </div>
+    </div>
+</form>
+
 <script>
-    $(function() {
-        $('#doc-form-file').on('change', function() {
-            var fileNames = '';
-            $.each(this.files, function() {
-                fileNames += '<span class="am-badge">' + this.name + '</span> ';
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            // layer.msg(JSON.stringify(data.field));
+            $.ajax({
+                url: "<?= $this->url('goods',['action'=>'add'])?>",
+                contentType: "application/json",
+                data: data.field, //请求的附加参数，用json对象
+                method: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        layer.msg("添加成功", { icon: 6, time: 2000 }, function () {
+
+                        });
+                    }
+                    else {
+                        layer.msg("添加失败", { icon: 5 });
+                    }
+
+                },
+                error: function () {
+                    layer.msg("添加失败", { icon: 5 });
+                }
             });
-            $('#file-list').html(fileNames);
+            return false;//只此一句
         });
-       $('#tags').tagsinput();
     });
+
+    layui.use('upload', function() {
+        var $ = layui.jquery
+            , upload = layui.upload;
+
+        //多图片上传
+        upload.render({
+            elem: '#test2'
+            ,url: '/upload'
+            ,multiple: true
+            ,before: function(obj){
+                //预读本地文件示例，不支持ie8
+                obj.preview(function(index, file, result){
+                    $('#demo2').append('<img src="'+ result +'" alt="'+ file.name +'" class="layui-upload-img">')
+                });
+            }
+            ,done: function(res){
+                $('#shopPic').append('<input type="hidden" name="shopPic" value="'+res.file+'">')
+                //上传完毕
+                layer.msg('上传成功',res);
+            }
+        });
+
+    });
+
 </script>

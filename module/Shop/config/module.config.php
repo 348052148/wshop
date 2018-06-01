@@ -2,12 +2,14 @@
 namespace Shop;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'controllers' => [
         'factories' => [
-            Controller\ShopController::class => InvokableFactory::class,
+            Controller\ShopController::class => function($container){
+                $mic = $container->get('MicroServiceManager');
+                return new Controller\ShopController($mic->get('ShopService'));
+            }
         ],
     ],
 //    'controllers' => [

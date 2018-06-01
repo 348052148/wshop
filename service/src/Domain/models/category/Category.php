@@ -1,7 +1,9 @@
 <?php
 namespace Service\Domain\models\category;
 
-class Category {
+use Service\Domain\models\EntityInterface;
+
+class Category implements EntityInterface {
     public $id;
     public $categoryName;
     public $pCategoryId;
@@ -25,5 +27,18 @@ class Category {
         $this->categoryPic = !empty($data['categoryPic']) ? $data['categoryPic'] : null;
         $this->isShow = !empty($data['isShow']) ? $data['isShow'] : null;
 
+    }
+
+    public function exchangeData()
+    {
+        $data = [
+            'categoryName' => $this->categoryName,
+            'pCategoryId' => $this->pCategoryId,
+            'categoryCode' => $this->categoryCode,
+            'categoryAttr' => $this->categoryAttr,
+            'categoryPic' => $this->categoryPic,
+            'isShow' => $this->isShow
+        ];
+        return $data;
     }
 }

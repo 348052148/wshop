@@ -3,39 +3,50 @@
 namespace  Shop\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class ShopController extends AbstractActionController{
 
+    private $shopService;
+
+    public function __construct($service)
+    {
+        $this->shopService = $service;
+    }
+
     public function baseAction(){
-        
+
+        $list = $this->shopService->shopList();
+
+        return new ViewModel([
+            'list'=>$list
+        ]);
     }
 
-    //创建店铺
-    public function createShopAction(){
+    public function addAction(){
+
+        if($this->request->isPost()){
+            $data = $this->request->getPost();
+            $this->shopService->addShop(
+                [
+                    'shopName' => $data['shopName'],
+                    'shopAlias' => $data['shopAlias'],
+                    'shopType' => $data['shopType'],
+                    'shopAddress' => $data['shopAddress'],
+                    'shopTel' => $data['shopTel'],
+                    'shopLogic' => $data['shopLogic'],
+                    'shopLeading' => $data['shopLeading'],
+                    'shopPic' => $data['shopPic'],
+                ]
+            );
+            return $this->redirect()->toRoute('shop',['action'=>'base']);
+        }
+
+
+        return new ViewModel([
+
+        ]);
 
     }
-    //更新店铺
-    public function updateShopAction(){
 
-    }
-    //获取店铺信息
-    public function getShopAction(){
-
-    }
-    //获取店铺地址
-    public function getShopAddressAction(){
-
-    }
-    //删除店铺地址
-    public function deleteShopAddressAction(){
-
-    }
-    //创建店铺地址
-    public function createShopAddressAction(){
-
-    }
-    //获取店铺状态
-    public function getShopStatusAction(){
-
-    }
 }

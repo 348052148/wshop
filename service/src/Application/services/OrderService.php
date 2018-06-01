@@ -1,7 +1,6 @@
 <?php
 namespace Service\Application\services;
 
-use Service\Domain\order\Order;
 use Service\Domain\repositorys\GoodsRepository;
 use Service\Domain\repositorys\OrderRepository;
 use Service\Domain\user\Buyer;
