@@ -34,11 +34,23 @@ return [
                     ],
                 ],
             ],
+            'upload' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/upload[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\UploadController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
+
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\UploadController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

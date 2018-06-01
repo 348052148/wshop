@@ -38,6 +38,7 @@ class GoodsController extends AbstractActionController{
                     'type' => $data['type'],
                     'tags' => $data['tags'],
                     'desc' => $data['desc'],
+                    'pic' => $data['pic'],
                 ]
             );
         }

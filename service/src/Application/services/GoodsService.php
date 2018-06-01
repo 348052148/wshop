@@ -28,6 +28,7 @@ class GoodsService  {
         $goods->mode = $goodsDto['mode'];
         $goods->tags = explode(';',$goodsDto['tags']);
         $goods->desc = $goodsDto['desc'];
+        $goods->pic = $goodsDto['pic'];
 
         $this->repository->save($goods);
 
