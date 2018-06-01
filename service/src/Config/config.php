@@ -1,5 +1,6 @@
 <?php
 namespace Service;
+use Service\Application\services\CategoryService;
 use Service\Application\services\GoodsService;
 use Service\Domain\repositorys\CartRepository;
 use Service\Domain\repositorys\CategoryRepository;
@@ -26,6 +27,10 @@ return [
             $GoodsRepository = $container->get('MicroServiceManager')->get(GoodsRepository::class);
             return new GoodsService($GoodsRepository);
         },
+        'CategoryService' => function($container){
+            $CategoryRepository = $container->get('MicroServiceManager')->get(CategoryRepository::class);
+            return new CategoryService($CategoryRepository);
+        }
 
     ]
 ];

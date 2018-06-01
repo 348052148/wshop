@@ -61,7 +61,7 @@ class GoodsRepository implements RepositorysInterface {
             return;
         }
 
-        if (! $this->findOne($id)) {
+        if (! $this->findById($id)) {
             throw new RuntimeException(sprintf(
                 'Cannot update album with identifier %d; does not exist',
                 $id
@@ -76,7 +76,7 @@ class GoodsRepository implements RepositorysInterface {
         return $this->tableGateway->select();
     }
 
-    public function findOne($id){
+    public function findById($id){
 
         $id = (int) $id;
 

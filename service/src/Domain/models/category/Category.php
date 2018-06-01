@@ -2,22 +2,28 @@
 namespace Service\Domain\models\category;
 
 class Category {
-    private $id;
-    private $categoryName;
-    private $pCategoryId;
+    public $id;
+    public $categoryName;
+    public $pCategoryId;
+    public $categoryCode;
+    public $categoryAttr;
+    public $isShow;
+    public $categoryPic;
 
-    public function __construct($name)
+    public function __construct()
     {
-        $this->categoryName = $name;
+        $this->categoryPic = '暂无';
     }
 
-    public function __get($name)
+    public function exchangeArray(array $data)
     {
-        return $this->$name;
-    }
+        $this->id = !empty($data['id']) ? $data['id'] : null;
+        $this->categoryName = !empty($data['categoryName']) ? $data['categoryName'] : null;
+        $this->pCategoryId = !empty($data['pCategoryId']) ? $data['pCategoryId'] : null;
+        $this->categoryCode = !empty($data['categoryCode']) ? $data['categoryCode'] : null;
+        $this->categoryAttr = !empty($data['categoryAttr']) ? $data['categoryAttr'] : null;
+        $this->categoryPic = !empty($data['categoryPic']) ? $data['categoryPic'] : null;
+        $this->isShow = !empty($data['isShow']) ? $data['isShow'] : null;
 
-    public function __set($name, $value)
-    {
-        $this->$name = $value;
     }
 }

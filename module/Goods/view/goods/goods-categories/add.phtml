@@ -1,15 +1,13 @@
-<form class="layui-form" action="">
+<form class="layui-form" method="post" action="<?= $this->url('category',['action'=>'add']) ?>">
 
     <div class="layui-form-item">
     <label class="layui-form-label">上级类目</label>
         <div class="layui-input-block">
-            <select name="quiz">
-                <option value="">顶级</option>
-                <optgroup label="烟酒饮料">
-                    <option value="">烟</option>
-                    <option value="">酒</option>
-                    <option value="">饮料</option>
-                </optgroup>
+            <select name="pCategoryId">
+                <option value="0">顶级</option>
+                <?php foreach ($categoryTree as $pid=>$category) ?>
+                    <option value="<?= $category->id ?>"><?= $category->categoryName ?></option>
+                <?php ?>
             </select>
         </div>
     </div>
@@ -17,14 +15,14 @@
     <div class="layui-form-item">
         <label class="layui-form-label">类目名称</label>
         <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="类目名称" autocomplete="off" class="layui-input">
+            <input type="text" name="categoryName" required  lay-verify="required" placeholder="类目名称" autocomplete="off" class="layui-input">
         </div>
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">类目编号</label>
         <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="类目编号" autocomplete="off" class="layui-input">
+            <input type="text" name="categoryCode" required  lay-verify="required" placeholder="类目编号" autocomplete="off" class="layui-input">
         </div>
     </div>
 
@@ -42,16 +40,16 @@
     <div class="layui-form-item">
         <label class="layui-form-label">类目属性</label>
         <div class="layui-input-block">
-            <input type="checkbox" name="like[write]" title="热门">
-            <input type="checkbox" name="like[read]" title="冷门" checked>
-            <input type="checkbox" name="like[dai]" title="长周期">
+            <input type="checkbox" name="categoryAttr[]" title="热门">
+            <input type="checkbox" name="categoryAttr[]" title="冷门" checked>
+            <input type="checkbox" name="categoryAttr[]" title="长周期">
         </div>
     </div>
 
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">保存</button>
+            <button class="layui-btn" >保存</button>
         </div>
     </div>
 </form>

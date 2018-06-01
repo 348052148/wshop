@@ -11,7 +11,10 @@ return [
                 $mic = $container->get('MicroServiceManager');
                 return new Controller\GoodsController($mic->get('GoodsService'));
             },
-            Controller\GoodsCategoriesController::class => InvokableFactory::class
+            Controller\GoodsCategoriesController::class => function($container){
+                $mic = $container->get('MicroServiceManager');
+                return new Controller\GoodsCategoriesController($mic->get('CategoryService'));
+            }
         ],
     ],
 //    'controllers' => [

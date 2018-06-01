@@ -45,20 +45,21 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($list as $v){ ?>
         <tr>
             <td>
-                烟酒饮料
+                <?= $v->categoryName ?>
 
             </td>
             <td>
-                YL002
+                <?= $v->categoryCode ?>
 
             </td>
             <td>
-                显示
+                <?= ($v->isShow == 1)?'启用':'不启用' ?>
             </td>
             <td>
-                一级类目
+                <?= $v->categoryAttr ?>
             </td>
             <td>
 
@@ -68,6 +69,7 @@
                 </div>
             </td>
         </tr>
+        <?php } ?>
 
         </tbody>
     </table>

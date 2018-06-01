@@ -2,7 +2,7 @@
 namespace Service\Domain\repositorys;
 
 use Service\Domain\models\category\Category;
-use Service\Domain\order\Order;
+use Zend\Db\Exception\RuntimeException;
 
 class CategoryRepository implements RepositorysInterface {
 
@@ -28,47 +28,55 @@ class CategoryRepository implements RepositorysInterface {
         return $this->tableGateway;
     }
 
+
     public function findById($id){
-        $orderEntity =  $this->where(['_id'=>$id])->first([]);
+        $id = (int) $id;
 
-        $order = new Order();
-        $order->id = $orderEntity->id;
-        $order->ctime = $orderEntity->ctime;
-        $order->status = $orderEntity->status;
-        $order->orderPrice = $orderEntity->orderPrice;
-        $order->goodsLst = $orderEntity->goodsLst;
-        $order->payType = $orderEntity->payType;
-        $order->user = $orderEntity->user;
+        $rowset = $this->tableGateway->select(['id'=>$id]);
 
-        return $order;
+        $row = $rowset->current();
+
+        if (! $row) {
+            throw new RuntimeException(sprintf(
+                'Could not find row with identifier %d',
+                1
+            ));
+        }
+
+        return $row;
     }
 
 
     public function findAll(){
-        $userEntitys = $this->get([]);
-        $orderLst = [];
-        foreach ($userEntitys as $orderEntity){
-            $order = new Order();
-            $order->id = $orderEntity->id;
-            $order->ctime = $orderEntity->ctime;
-            $order->status = $orderEntity->status;
-            $order->orderPrice = $orderEntity->orderPrice;
-            $order->goodsLst = $orderEntity->goodsLst;
-            $order->payType = $orderEntity->payType;
-            $order->user = $orderEntity->user;
-            array_push($orderLst,$order);
-        }
-        return $orderLst;
+        return $this->tableGateway->select();
     }
 
-    public function store(Order $order){
-        $this->update(['_id'=>$order->id],[
-            'ctime' => $order->username,
-            'status' => $order->passwd,
-            'orderPrice' => $order->nickname,
-            'goodsLst' => $order->goodsLst,
-            'payType' => $order->payType,
-            'user' => $order->user
-        ]);
+    public function save(Category $category)
+    {
+
+        $data = [
+            'categoryName' => $category->categoryName,
+            'pCategoryId' => $category->pCategoryId,
+            'categoryCode' => $category->categoryCode,
+            'categoryAttr' => $category->categoryAttr,
+            'categoryPic' => $category->categoryPic,
+            'isShow' => $category->isShow
+        ];
+
+        $id = (int) $category->id;
+
+        if ($id === 0) {
+            $this->tableGateway->insert($data);
+            return;
+        }
+
+        if (! $this->findById($id)) {
+            throw new RuntimeException(sprintf(
+                'Cannot update album with identifier %d; does not exist',
+                $id
+            ));
+        }
+
+        $this->tableGateway->update($data, ['id' => $id]);
     }
 }
