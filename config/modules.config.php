@@ -20,6 +20,7 @@ return [
     'Stock',
     'Supplier',
     'Sale',
+    'Api',
 //    'Trade',
 //    'User'
 ];

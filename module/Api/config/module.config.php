@@ -1,19 +1,13 @@
 <?php
 namespace Api;
-use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'controllers' => [
         'factories' => [
-            Controller\GoodsController::class => function($container){
+            Controller\ApiController::class => function($container){
                 $mic = $container->get('MicroServiceManager');
-                return new Controller\GoodsController($mic->get('GoodsService'));
-            },
-            Controller\GoodsCategoriesController::class => function($container){
-                $mic = $container->get('MicroServiceManager');
-                return new Controller\GoodsCategoriesController($mic->get('CategoryService'));
+                return new Controller\ApiController($mic);
             }
         ],
     ],
@@ -44,23 +38,13 @@ return [
     // The following section is new and should be added to your file:
     'router' => [
         'routes' => [
-            'goods' => [
+            'api' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/goods[/:action][/:id]',
+                    'route' => '/api[/:action][/:id]',
                     'defaults' => [
-                        'controller' => Controller\GoodsController::class,
-                        'action'     => 'base',
-                    ],
-                ],
-            ],
-            'category' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route' => '/category[/:action][/:id]',
-                    'defaults' => [
-                        'controller' => Controller\GoodsCategoriesController::class,
-                        'action'     => 'base',
+                        'controller' => Controller\ApiController::class,
+                        'action'     => 'index',
                     ],
                 ],
             ]
@@ -69,14 +53,14 @@ return [
 
 
 
-    'view_manager' => [
-        'strategies' => [
-            'ViewJsonStrategy', //配置view策略
-        ],
-        'template_path_stack' => [
-            'goods' => __DIR__ . '/../view',
-        ],
-    ],
+//    'view_manager' => [
+//        'strategies' => [
+//            'ViewJsonStrategy', //配置view策略
+//        ],
+//        'template_path_stack' => [
+//            'goods' => __DIR__ . '/../view',
+//        ],
+//    ],
 ];
 
 

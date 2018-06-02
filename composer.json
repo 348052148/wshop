@@ -26,7 +26,8 @@
             "Stock\\": "module/Stock/src/",
             "Shop\\": "module/Shop/src/",
             "Supplier\\": "module/Supplier/src/",
-            "Sale\\": "module/Sale/src/"
+            "Sale\\": "module/Sale/src/",
+            "Api\\": "module/Api/src/"
 
         }
     },

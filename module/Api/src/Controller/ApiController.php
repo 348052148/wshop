@@ -3,6 +3,12 @@ namespace Api\Controller;
 
 class ApiController extends BaseApiController {
 
+    private $microService;
+
+    public function __construct($microService)
+    {
+        $this->microService = $microService;
+    }
 
     public function homeAction(){
 
