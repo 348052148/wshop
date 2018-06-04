@@ -20,4 +20,10 @@ class CartRepository extends AbstractCURDRepository{
         return 'cart';
     }
 
+    public function findByUid($uid){
+        return $this->tableGateway->select([
+            'uid' => $uid
+        ]);
+    }
+
 }

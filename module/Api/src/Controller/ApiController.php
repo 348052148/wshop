@@ -79,8 +79,39 @@ class ApiController extends BaseApiController {
     }
 
 
+    private function generateTree(&$tree,$categoryTree,$pid){
 
+        foreach ($categoryTree[$pid] as $category){
+            $treeTemp = [
+                'title' => $category->categoryName,
+                'pic' => empty($category->categoryPic)?'':$category->categoryPic,
+                'list' => []
+            ];
+            if(!empty($categoryTree[$category->id])){
+                $this->generateTree($treeTemp['list'],$categoryTree,$category->id);
+            }
+
+            $tree[] = $treeTemp;
+
+        }
+
+    }
+
+    /**
+     * 渲染商品类目
+     */
     public function catAction(){
+
+        $categoryService = $this->microService->get('CategoryService');
+        //categoryTree
+
+        $categoryTree = $categoryService->categoryTree();
+
+
+        $tree = [];
+
+        $this->generateTree($tree,$categoryTree,0);
+
 
         $data = [
                 'cat'=>[
@@ -103,9 +134,14 @@ class ApiController extends BaseApiController {
                 ]
         ];
 
+        $data['cat'] = $tree;
+
         return $this->success($data);
     }
 
+    /**
+     * 购物车数据
+     */
     public function cartAction(){
         /**
          * cartInfo:{
@@ -132,23 +168,39 @@ class ApiController extends BaseApiController {
         },
         ],
          */
+        $cartService = $this->microService->get('CartService');
+        $cartList = $cartService->cartByUid(['uid'=> 1]);
+
         $data = [
             'cartInfo' => [
                 'goodsList' => [
-                     [
-                         'title' => '为家清洁毛巾',
-                         'pic' => 'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png',
-                         'specifText' => '瓶',
-                         'units' => 1,
-                         'sku' => '2312312312',
-                         'num' => 2,
-                         'price' => 14,
-                         'isCheck'=>false,
-                     ]
+//                     [
+//                         'title' => '为家清洁毛巾',
+//                         'pic' => 'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png',
+//                         'specifText' => '瓶',
+//                         'units' => 1,
+//                         'sku' => '2312312312',
+//                         'num' => 2,
+//                         'price' => 14,
+//                         'isCheck'=>false,
+//                     ]
                 ],
                 'totalPrice'=> 0,
             ]
         ];
+
+        foreach ($cartList as $cartItem){
+            array_push($data['cartInfo']['goodsList'],[
+                'title' => $cartItem->title,
+                'pic' => empty($cartItem->pic)?'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png':$cartItem->pic,
+                'specifText' => $cartItem->specifText,
+                'units' => $cartItem->units,
+                'sku' => $cartItem->sku,
+                'num' => $cartItem->num,
+                'price' => $cartItem->price/100,
+                'isCheck'=>false,
+            ]);
+        }
 
         return $this->success($data);
     }

@@ -50,7 +50,7 @@ class CategoryService  {
         $categoryLst = $this->repository->findAll();
         $categoryTree = [];
         foreach ($categoryLst as $category){
-            $categoryTree[$category->pCategoryId] = $category;
+            $categoryTree[$category->pCategoryId][] = $category;
         }
         return $categoryTree;
     }

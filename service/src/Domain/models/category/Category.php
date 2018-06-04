@@ -19,9 +19,9 @@ class Category implements EntityInterface {
 
     public function exchangeArray(array $data)
     {
-        $this->id = !empty($data['id']) ? $data['id'] : null;
+        $this->id = !empty($data['id']) ? $data['id'] : 0;
         $this->categoryName = !empty($data['categoryName']) ? $data['categoryName'] : null;
-        $this->pCategoryId = !empty($data['pCategoryId']) ? $data['pCategoryId'] : null;
+        $this->pCategoryId = !empty($data['pCategoryId']) ? $data['pCategoryId'] : 0;
         $this->categoryCode = !empty($data['categoryCode']) ? $data['categoryCode'] : null;
         $this->categoryAttr = !empty($data['categoryAttr']) ? $data['categoryAttr'] : null;
         $this->categoryPic = !empty($data['categoryPic']) ? $data['categoryPic'] : null;
