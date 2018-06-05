@@ -519,9 +519,10 @@ class ApiController extends BaseApiController {
         }
         ]
          */
+        $page = $this->request->getQuery('page');
         $goodsService = $this->microService->get('GoodsService');
 
-        $goodsList = $goodsService->goodsLst();
+        $goodsList = $goodsService->goodsLst($page);
 
         $data = [
             'goodsList'=> [
