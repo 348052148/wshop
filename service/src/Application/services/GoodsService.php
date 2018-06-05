@@ -83,6 +83,11 @@ class GoodsService  {
 
             foreach ($specifs as $specif){
                 $goods->specifs[] = $specif;
+
+                if($specif->isDefault == 1){
+                    $goods->price = $specif->price;
+                    $goods->units = $specif->units;
+                }
             }
 
             array_push($goodsArr, $goods);

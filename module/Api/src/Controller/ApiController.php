@@ -38,31 +38,6 @@ class ApiController extends BaseApiController {
             ]
         ];
 
-        //blocks
-        $data['blocks'] = [
-          [
-              'title'=> '限时特价',
-              'list' => [
-                  ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                  ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                  ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                  ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-              ]
-
-          ],
-
-            [
-                'title'=> '第二件半价',
-                'list' => [
-                    ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                    ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                    ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                    ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
-                ]
-
-            ],
-        ];
-
         //newGoodsList
         $goodsService = $this->microService->get('GoodsService');
 
@@ -76,14 +51,57 @@ class ApiController extends BaseApiController {
 //            ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png']
         ];
 
+        $xianshi = [];
+
+        $i = 0;
+
+        $banjia = [];
+
         foreach ($goodsList as $goods){
             array_push($data['newGoodsList'],[
                'sku'=>$goods->sku,
                'title'=>$goods->title,
-               'price' => 12,
+               'price' => number_format($goods->price/100,2),
                 'pic' => $goods->pic
             ]);
+
+            if($i<4){
+                array_push($xianshi,[
+                    'sku'=>$goods->sku,
+                    'title'=>$goods->title,
+                    'price' => number_format($goods->price/100,2),
+                    'pic' => $goods->pic
+                ]);
+            }
+
+            if($i>=4&&$i<8){
+                array_push($banjia,[
+                    'sku'=>$goods->sku,
+                    'title'=>$goods->title,
+                    'price' => number_format($goods->price/100,2),
+                    'pic' => $goods->pic
+                ]);
+            }
+
+            $i++;
+
+
         }
+
+        //blocks
+        $data['blocks'] = [
+            [
+                'title'=> '限时特价',
+                'list' => $xianshi
+
+            ],
+
+            [
+                'title'=> '第二件半价',
+                'list' => $banjia
+
+            ],
+        ];
 
 
 
@@ -483,16 +501,28 @@ class ApiController extends BaseApiController {
         }
         ]
          */
+        $goodsService = $this->microService->get('GoodsService');
+
+        $goodsList = $goodsService->goodsLst();
+
         $data = [
             'goodsList'=> [
-                [
-                    'title'=>'马来西亚原装进口 过山车(GOTOGO)麦糯糯浓醇巧克力味蛋糕卷 480克（20克×24）',
-                    'price' => 100,
-                    'sku' => '20180607_001',
-                    'pic' => 'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'
-                ]
+//                [
+//                    'title'=>'马来西亚原装进口 过山车(GOTOGO)麦糯糯浓醇巧克力味蛋糕卷 480克（20克×24）',
+//                    'price' => 100,
+//                    'sku' => '20180607_001',
+//                    'pic' => 'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'
+//                ]
             ]
        ];
+        foreach ($goodsList as $goods){
+            array_push($data['goodsList'],[
+                'title'=>$goods->title,
+                'price' => number_format($goods->price/100,2),
+                'sku' => $goods->sku,
+                'pic' => $goods->pic
+            ]);
+        }
 
         return $this->success($data);
     }
