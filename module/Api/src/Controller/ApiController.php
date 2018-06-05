@@ -58,12 +58,6 @@ class ApiController extends BaseApiController {
         $banjia = [];
 
         foreach ($goodsList as $goods){
-            array_push($data['newGoodsList'],[
-               'sku'=>$goods->sku,
-               'title'=>$goods->title,
-               'price' => number_format($goods->price/100,2),
-                'pic' => $goods->pic
-            ]);
 
             if($i<4){
                 array_push($xianshi,[
@@ -104,6 +98,30 @@ class ApiController extends BaseApiController {
         ];
 
 
+
+        return $this->success($data);
+    }
+
+    public function newGoodsListAction(){
+
+        $page = $this->request->getQuery('page');
+
+        $goodsService = $this->microService->get('GoodsService');
+
+        $goodsList = $goodsService->goodsLst($page);
+
+        $data = [
+          'newGoodsList' => []
+        ];
+
+        foreach ($goodsList as $goods) {
+            array_push($data['newGoodsList'], [
+                'sku' => $goods->sku,
+                'title' => $goods->title,
+                'price' => number_format($goods->price / 100, 2),
+                'pic' => $goods->pic
+            ]);
+        }
 
         return $this->success($data);
     }

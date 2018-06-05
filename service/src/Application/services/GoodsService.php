@@ -74,8 +74,10 @@ class GoodsService  {
      * 获取商品列表
      * @return mixed
      */
-    public function goodsLst(){
-        $goodsLst = $this->repository->findAll();
+    public function goodsLst($page=0,$count=9){
+//        $goodsLst = $this->repository->findAll();
+
+        $goodsLst = $this->repository->findList($page*$count);
 
         $goodsArr = [];
         foreach ($goodsLst as $goods){
