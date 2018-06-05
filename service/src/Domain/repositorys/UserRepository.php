@@ -1,7 +1,8 @@
 <?php
 namespace Service\Domain\repositorys;
 
-use Service\Domain\user\User;
+
+use Service\Domain\models\user\User;
 
 class UserRepository extends AbstractCURDRepository {
 

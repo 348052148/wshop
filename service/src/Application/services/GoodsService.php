@@ -76,7 +76,19 @@ class GoodsService  {
      */
     public function goodsLst(){
         $goodsLst = $this->repository->findAll();
-        return $goodsLst;
+
+        $goodsArr = [];
+        foreach ($goodsLst as $goods){
+            $specifs = $this->specificatRepository->findBySku($goods->sku);
+
+            foreach ($specifs as $specif){
+                $goods->specifs[] = $specif;
+            }
+
+            array_push($goodsArr, $goods);
+        }
+
+        return $goodsArr;
     }
 
 }

@@ -1,8 +1,8 @@
 <?php
 namespace Service\Domain\repositorys;
 
-use Service\Domain\order\Order;
-use Service\Domain\repositorys\RepositorysInterface;
+
+use Service\Domain\models\order\Order;
 
 class OrderRepository extends AbstractCURDRepository {
 
@@ -15,4 +15,5 @@ class OrderRepository extends AbstractCURDRepository {
     {
         return 'order';
     }
+
 }

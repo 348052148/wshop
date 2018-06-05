@@ -1,60 +1,30 @@
 <?php
-namespace Service\Domain\user;
+namespace Service\Domain\models\user;
 
-use Service\Domain\cart\Cart;
-use Service\Domain\order\Order;
+use Service\Domain\models\EntityInterface;
 
-class User {
-    private $id;
-    private $username;
-    private $nickname;
-    private $passwd;
-    private $ctime;
-    private $status;
-    private $cart;
+class User implements EntityInterface {
+    public $id;
+    public $username;
+    public $nickname;
+    public $passwd;
+    public $ctime;
+    public $status;
+    public $cart;
 
     public function __construct()
     {
 
     }
 
-    public function __get($name)
+    public function exchangeArray(array $data)
     {
-        return $this->$name;
+        // TODO: Implement exchangeArray() method.
     }
 
-    public function __set($name, $value)
+    public function exchangeData()
     {
-        $this->$name = $value;
+        // TODO: Implement exchangeData() method.
     }
 
-    public function login(){
-        $this->status = 1;
-    }
-
-    public function logout(){
-        $this->status = 0;
-    }
-
-    public function createOrder($goodsLst){
-
-        $order = new Order($this);
-
-        $order->user = $this;
-
-        foreach ($goodsLst as $goods){
-            $order->addGoods($goods);
-        }
-
-        return $order;
-    }
-
-    public function payOrder(Order $order,$payType){
-        $order->payType = $payType;
-        return $order;
-    }
-
-    public function createCart(){
-        $this->cart = new Cart($this->id);
-    }
 }

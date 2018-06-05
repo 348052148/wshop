@@ -1,66 +1,76 @@
 <?php
 namespace Service\Application\services;
 
-use Service\Domain\repositorys\GoodsRepository;
-use Service\Domain\repositorys\OrderRepository;
-use Service\Domain\user\Buyer;
-use UI\dtos\RequestDto;
+use Service\Domain\models\order\Order;
 
 class OrderService {
-
-    public function orderLst(RequestDto $orderDto){
-        $orderRepository = new OrderRepository();
-
-        $orderLst = $orderRepository->findAll();
-
-        return $orderLst;
+    private $orderRepository;
+    private $goodsRepository;
+    private $specificatRepository;
+    private $addressRepository;
+    public function __construct($orderRepository,$goodsRepository,$specificatRepository,$addressRepository)
+    {
+        $this->orderRepository = $orderRepository;
+        $this->goodsRepository = $goodsRepository;
+        $this->specificatRepository = $specificatRepository;
+        $this->addressRepository = $addressRepository;
     }
 
-    //创建订单
-    public function createOrder(RequestDto $orderDto){
 
-        $orderRepository = new OrderRepository();
+    public function preCreateOrder($orderDto){
 
-        $buyer = $orderRepository->findById($orderDto->uid);
+        $order = new Order();
+        $order->orderCode = 'JXXX1230123';
+        $order->remark = '无';
+        $order->sendTime = 0;
+        $order->sendType =1 ;
 
-        $goodsLst = [];
+        $order->fList = [];
+        $order->goodsList = [];
+        $order->address = [];
 
-        $goodsRepository = new GoodsRepository();
-
-        foreach ($orderDto->skus as $sku){
-            $goods = $goodsRepository->findById($sku);
-            array_push($goodsLst,$goods);
+        /**
+         *  'title' =>'农夫山泉550ml',
+        'pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png',
+        'specif'=>['title'=>'瓶','units'=>1],
+        'price'=>2.5,
+        'num'=>2,
+        'total'=>5
+         */
+        $price = 0;
+        foreach ($orderDto['goodsList'] as $goodsInfo){
+            $goods = $this->goodsRepository->findBySku($goodsInfo['sku']);
+            $specif = $this->specificatRepository->findBySkuUnits($goodsInfo['sku'],$goodsInfo['units']);
+            $order->goodsList[] = [
+                'title' => $goods->title,
+                'pic' => $goods->pic,
+                'specif' => ['title'=>$specif->title,'units'=>$specif->units],
+                'price' => $specif->price,
+                'num' => $goodsInfo['num'],
+                'total' => $specif->price * $goodsInfo['num']
+            ];
+            $price += $specif->price * $goodsInfo['num'];
         }
+        $order->price = $price;
 
-        $order = $buyer->createOrder($goodsLst);
+        //address
+        $address = $this->addressRepository->findByUid(['uid'=>1]);
+        $order->address = [
+            'id' => $address->id,
+            'name' => $address->name,
+            'tel' => $address->tel,
+            'address' => $address->addressDetail
+        ];
 
-        $orderRepository = new OrderRepository();
-
-        $orderRepository->store($order);
-
-        return $order;
-    }
-
-    public function payOrder(RequestDto $orderDto){
-        $orderRepository = new OrderRepository();
-
-        $buyer = $orderRepository->findById($orderDto->uid);
-
-        $orderRepository = new OrderRepository();
-        $order = $orderRepository->findById($orderDto->id);
-
-        $order = $buyer->payOrder($order,1);
-
-        $orderRepository->store($order);
+        //fList 这里处理优惠
+        $order->fList = [
+            [
+                'title' => '收取运费',
+                'price' => 2
+            ]
+        ];
 
         return $order;
     }
-    //其他角色进行配送
-    public function deliveryOrder(RequestDto $orderDto){
 
-    }
-    //送达
-    public function complateOrder(RequestDto $orderDto){
-
-    }
 }

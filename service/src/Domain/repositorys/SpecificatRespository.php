@@ -20,4 +20,9 @@ class SpecificatRespository extends AbstractCURDRepository{
         return $this->tableGateway->select(['sku'=>$sku]);
     }
 
+    public function findBySkuUnits($sku,$units){
+        $rowset = $this->tableGateway->select(['sku'=>$sku,'units'=>$units]);
+        return $rowset->current();
+    }
+
 }

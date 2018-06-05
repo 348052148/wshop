@@ -5,7 +5,6 @@ namespace Service\Domain\repositorys;
 
 
 use Service\Domain\models\cart\Cart;
-use Zend\Db\Exception\RuntimeException;
 
 class CartRepository extends AbstractCURDRepository{
 

@@ -1,37 +1,59 @@
 <?php
 namespace Service\Application\services;
 
-use Service\Domain\repositorys\UserRepository;
-use UI\dtos\RequestDto;
+
+use Service\Domain\models\user\Address;
 
 class UserService {
 
-    public function login(RequestDto $loginDto){
+    private $userRepository;
 
-        $userRepository = new UserRepository();
-        try {
-            $user = $userRepository->checkLogin($loginDto->username,$loginDto->passwd);
-            $user->login();
-        }catch (\Exception $e){
+    private $addressRepository;
 
-        }
-        $userRepository->store($user);
-        //这里暂不处理返回值情况
-        return $user;
+    public function __construct($userRepository,$addressRepository)
+    {
+        $this->addressRepository =$addressRepository;
+        $this->userRepository =$userRepository;
     }
 
-    public function register(RequestDto $registerDto){
-        $userService = new \DDD\Domain\user\UserService();
-        $user = $userService->register($registerDto->username,$registerDto->passwd);
+    public function addAddress($addressDto){
 
-        return $user;
+        $address = new Address();
+        $address->uid = $addressDto['uid'];
+        $address->isDefault = $addressDto['isDefault'];
+        $address->postalCode = $addressDto['postalCode'];
+        $address->areaCode = $addressDto['areaCode'];
+        $address->county = $addressDto['county'];
+        $address->city = $addressDto['city'];
+        $address->province = $addressDto['province'];
+        $address->name = $addressDto['name'];
+        $address->tel = $addressDto['tel'];
+        $address->addressDetail = $addressDto['addressDetail'];
+
+        $this->addressRepository->save($address);
     }
 
-    public function logout(RequestDto $loginDto){
-        $userRepository = new UserRepository();
-        $user = $userRepository->findById($loginDto->id);
-        $user->logout();
+    public function addressList(){
 
-        $userRepository->store($user);
+        $addressList = $this->addressRepository->findAll();
+
+        return $addressList;
+    }
+
+    public function deleteAddress($addressDto){
+
+        return $this->addressRepository->delete($addressDto['id']);
+
+    }
+
+    public function getAddressByid($addressDto){
+
+        return $this->addressRepository->findById($addressDto['id']);
+    }
+
+    public function setDefaultAddress($addressDto){
+        $this->addressRepository->updateAddress(['isDefault'=>0],['isDefault'=>1]);
+        $this->addressRepository->updateAddress(['isDefault'=>1],['id'=>$addressDto['id']]);
+        return true;
     }
 }
