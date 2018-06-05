@@ -8,6 +8,7 @@ use Service\Domain\repositorys\CategoryRepository;
 use Service\Domain\repositorys\GoodsRepository;
 use Service\Domain\repositorys\OrderRepository;
 use Service\Domain\repositorys\ShopRepository;
+use Service\Domain\repositorys\SpecificatRespository;
 use Service\Domain\repositorys\UserRepository;
 use Service\Application\services\CartService;
 use Service\Factory\RepositorysFacotry;
@@ -20,6 +21,7 @@ return [
         OrderRepository::class => RepositorysFacotry::class,
         UserRepository::class => RepositorysFacotry::class,
         ShopRepository::class => RepositorysFacotry::class,
+        SpecificatRespository::class => RepositorysFacotry::class,
 
         'CartService' => function($container) {
             $CartRepository = $container->get('MicroServiceManager')->get(CartRepository::class);
@@ -27,7 +29,8 @@ return [
         },
         'GoodsService' => function($container) {
             $GoodsRepository = $container->get('MicroServiceManager')->get(GoodsRepository::class);
-            return new GoodsService($GoodsRepository);
+            $SpecificatRepository = $container->get('MicroServiceManager')->get(SpecificatRespository::class);
+            return new GoodsService($GoodsRepository,$SpecificatRepository);
         },
         'CategoryService' => function($container){
             $CategoryRepository = $container->get('MicroServiceManager')->get(CategoryRepository::class);

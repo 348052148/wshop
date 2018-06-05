@@ -16,6 +16,7 @@ class Goods  implements EntityInterface {
     public $mode;
     public $tags;
     public $desc;
+    public $specifs;
 
     public function __construct()
     {

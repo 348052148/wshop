@@ -7,9 +7,13 @@ class GoodsService  {
 
     private $repository;
 
-    public function __construct($repository)
+    private $specificatRepository;
+
+    public function __construct($repository,$specificatRepository)
     {
         $this->repository = $repository;
+
+        $this->specificatRepository = $specificatRepository;
     }
 
     /**
@@ -31,6 +35,18 @@ class GoodsService  {
         $goods->pic = $goodsDto['pic'];
 
         $this->repository->save($goods);
+
+        return $goods;
+    }
+
+    public function getGoodsBySku($goodsDto){
+        $goods = $this->repository->findBySku($goodsDto['sku']);
+
+        $specifs = $this->specificatRepository->findBySku($goodsDto['sku']);
+
+        foreach ($specifs as $specif){
+            $goods->specifs[] = $specif;
+        }
 
         return $goods;
     }

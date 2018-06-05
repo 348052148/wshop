@@ -302,12 +302,31 @@ class ApiController extends BaseApiController {
 
     public function goodsAction(){
 
+        $goodsService = $this->microService->get('GoodsService');
+
+        /**
+         * public $id;
+        public $sku;
+        public $title;
+        public $subTitle;
+        public $pic;
+        public $specificat; // 规格
+        public $originalPrice; //原价
+        public $categoryId;
+        public $type;
+        public $mode;
+        public $tags;
+        public $desc;
+         */
+
+        $goods = $goodsService->getGoodsBySku(['sku'=>'20180607_002']);
+
         $data = [
             'goodsInfo' => [
-                'title' =>   '思蕴语露面巾 （颜色随机 毛巾）',
-                'sku' => '12312312',
+                'title' =>   $goods->title,
+                'sku' => $goods->sku,
                 'price' => '12.00',
-                'organalPrice' => '28.00',
+                'organalPrice' => $goods->originalPrice/100,
                 'pic' => 'http://img.zcool.cn/community/019f4e57207bc432f875a3990cbb6b.PNG@1280w_1l_2o_100sh.png',
                 'pics' => [
                     'http://img.zcool.cn/community/019f4e57207bc432f875a3990cbb6b.PNG@1280w_1l_2o_100sh.png',
@@ -318,11 +337,26 @@ class ApiController extends BaseApiController {
                 'saleVolume' => 100,
                 'specifTitle' => '瓶',
                 'specif' => [
-                    ['units'=>1,'title'=>'瓶','pic'=>'https://img.yzcdn.cn/1.jpg','price'=>100],
-                    ['units'=>12,'title'=>'瓶','pic'=>'https://img.yzcdn.cn/1.jpg','price'=>1200]
+//                    ['units'=>1,'title'=>'瓶','pic'=>'https://img.yzcdn.cn/1.jpg','price'=>100],
+//                    ['units'=>12,'title'=>'瓶','pic'=>'https://img.yzcdn.cn/1.jpg','price'=>1200]
                 ],
             ]
         ];
+
+        foreach ($goods->specifs as $specif){
+            array_push($data['goodsInfo']['specif'],[
+                'units' => $specif->units,
+                'title' => $specif->title,
+                'pic' => $specif->pic,
+                'price' => $specif->price,
+                'originalPrice' => $specif->originalPrices,
+            ]);
+            if($specif->isDefault == 1){
+                $data['goodsInfo']['price'] = number_format($specif->price/100,2);
+                $data['goodsInfo']['units'] = $specif->units;
+                $data['goodsInfo']['specifTitle'] = $specif->title;
+            }
+        }
 
         return $this->success($data);
     }
