@@ -567,6 +567,10 @@ class ApiController extends BaseApiController {
 
         $order = $orderService->preCreateOrder(['goodsList'=>$goodsList]);
 
+        if(empty($order->title)){
+            return $this->error('商品不存在');
+        }
+
         foreach ($order->goodsList as &$goods){
             $goods['price'] = $goods['price']/100;
             $goods['total'] = $goods['total']/100;
@@ -583,60 +587,90 @@ class ApiController extends BaseApiController {
                 'sendTime' => $order->sendTime,
                 'payType' => $order->payType,
                 'goodsList' => $order->goodsList,
+                'status' => $order->status,
                 'fList' => $order->fList,
                 'price' => $order->price,
                 'remark' => $order->remark,
                 'orderCode' => $order->orderCode
             ],
             'sendType' =>[
-                ['title'=>'18:30 - 19:00','type'=>1,'time'=>time()]
 
             ]
         ];
+
+        $startTime = time();
+
+        for (;$startTime < strtotime(date('Y-m-d',time()).' 22:00:00');$startTime+=1800){
+            array_push($data['sendType'],[
+                'title'=> date('H:i',$startTime)."~".date('H:i',$startTime+1800),
+                'type' => 1,
+                'time' => $startTime
+            ]);
+        }
+
 
         return $this->success($data);
     }
 
     public function submitOrderAction(){
+        $order = json_decode($this->request->getQuery('orderInfo'),true);
 
+        $orderService = $this->microService->get('OrderService');
+
+        $orderService->createOrder([
+            'order' => $order
+        ]);
+        /**
+         * {"address":{"name":"周辉","tel":"18523922709","address":"浙江省杭州市西湖区文三路+138+号东方通信大厦+7+楼+501+室"},
+         * "sendType":1,"sendTime":1528253193,"payType":1,
+         * "goodsList":[{"title":"洽洽怪味花生五香味68g","pic":"http://weixin.ismbao.com/upload/201801/13/1515804761231472.jpg","specif":{"title":"包","units":"1"},"price":3,"num":"1","total":3}],
+         * "fList":[{"title":"收取运费","price":2}],
+         * "price":300,"remark":"无","orderCode":"JXXX1230123"}
+         */
         $data = [];
         return $this->success($data);
     }
 
     public function orderListAction(){
+
+        $status = $this->request->getQuery('status');
+
+        $orderService = $this->microService->get('OrderService');
+
+        $orderList = $orderService->orderList(['page'=>0,'status'=>$status]);
+
         $data = [
           'list' => [
-              [
-                  'address' => [
-                      'name' => '~~~~',
-                      'tel' => '18523922789',
-                      'address' => '重庆市渝北区环山国际'
-                  ],
-                  'sendType' => 1,
-                  'sendTime' => time(),
-                  'payType' => 1,
-                  'goodsList' => [
-                      [
-                          'title' =>'农夫山泉550ml',
-                          'pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png',
-                          'specif'=>['title'=>'瓶','units'=>1],
-                          'price'=>2.5,
-                          'num'=>2,
-                          'total'=>5
-                      ]
-                  ],
-                  'fList' => [
-                      [
-                          'title' => '收取运费',
-                          'price' => 2
-                      ]
-                  ],
-                  'price' => 700,
-                  'remark' => '',
-                  'orderCode' => 'JXHY10923213'
-              ]
+
           ]
         ];
+
+        $orderStatus =[
+            1 => '待支付',
+            2 => '待发货',
+            3 => '配送中',
+            4 => '已取消',
+            5 => '已完成',
+            6 => '已评价'
+        ];
+
+        foreach ($orderList as $order){
+            array_push($data['list'],[
+                'id' => $order->id,
+                'address' => $order->address,
+                'sendType' => $order->sendType,
+                'sendTime' => $order->sendTime,
+                'payType' => $order->payType,
+                'goodsList' => $order->goodsList,
+                'status' => $order->status,
+                'fList' => $order->fList,
+                'price' => $order->price,
+                'remark' => $order->remark,
+                'orderCode' => $order->orderCode,
+                'orderStatus' => $orderStatus[$order->status]
+            ]);
+        }
+
         return $this->success($data);
     }
 }

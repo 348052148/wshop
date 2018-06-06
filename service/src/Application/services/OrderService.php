@@ -20,10 +20,12 @@ class OrderService {
     public function preCreateOrder($orderDto){
 
         $order = new Order();
-        $order->orderCode = 'JXXX1230123';
+        $order->orderCode = 'JXXX'.date('Ymd',time()).random_int(1,1000);
         $order->remark = '无';
         $order->sendTime = 0;
         $order->sendType =1 ;
+        $order->status = 1;
+        $order->payType = 1;
 
         $order->fList = [];
         $order->goodsList = [];
@@ -44,6 +46,7 @@ class OrderService {
             $order->goodsList[] = [
                 'title' => $goods->title,
                 'pic' => $goods->pic,
+                'sku' =>$goods->sku,
                 'specif' => ['title'=>$specif->title,'units'=>$specif->units],
                 'price' => $specif->price,
                 'num' => $goodsInfo['num'],
@@ -73,4 +76,27 @@ class OrderService {
         return $order;
     }
 
+    public function createOrder($orderDto){
+        $orderInfo = $orderDto['order'];
+
+        $order = new Order();
+        $order->orderCode = $orderInfo['orderCode'];
+        $order->remark = $orderInfo['remark'];
+        $order->sendTime = $orderInfo['sendTime'];
+        $order->sendType = $orderInfo['sendType'];
+        $order->payType = $orderInfo['payType'];
+        $order->status = $orderInfo['status'];
+        $order->price = $orderInfo['price'];
+
+        $order->fList = $orderInfo['fList'];
+        $order->goodsList = $orderInfo['goodsList'];
+        $order->address = $orderInfo['address'];
+
+        return $this->orderRepository->save($order);
+    }
+
+    public function orderList($orderDto){
+
+        return $this->orderRepository->findList($orderDto['status'],$orderDto['page']);
+    }
 }

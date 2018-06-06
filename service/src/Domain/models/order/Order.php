@@ -8,16 +8,20 @@ class Order implements EntityInterface {
     public $address;
     public $sendType;
     public $sendTime;
+    public $payType;
     public $goodsList;
     public $fList;
     public $price;
     public $remark;
     public $orderCode;
+    public $status;
 
     public function exchangeArray(array $data)
     {
         $this->id     = !empty($data['id']) ? $data['id'] : null;
+        $this->status     = !empty($data['status']) ? $data['status'] : null;
         $this->sendType     = !empty($data['sendType']) ? $data['sendType'] : null;
+        $this->payType     = !empty($data['payType']) ? $data['payType'] : null;
         $this->sendTime     = !empty($data['sendTime']) ? $data['sendTime'] : null;
         $this->address     = !empty($data['address']) ? json_decode($data['address']) : null;
         $this->goodsList     = !empty($data['goodsList']) ? json_decode($data['goodsList']) : null;
@@ -30,6 +34,7 @@ class Order implements EntityInterface {
     public function exchangeData()
     {
         $data = [
+            'status' => $this->status,
             'sendType' => $this->sendType,
             'sendTime' => $this->sendTime,
             'address' => json_encode($this->address),
@@ -37,6 +42,7 @@ class Order implements EntityInterface {
             'fList' => json_encode($this->fList),
             'price' => $this->price,
             'remark' => $this->remark,
+            'payType' => $this->payType,
             'orderCode' => $this->orderCode,
         ];
         return $data;
