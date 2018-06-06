@@ -47,7 +47,7 @@ class CategoryService  {
      * @return array
      */
     public function categoryTree(){
-        $categoryLst = $this->repository->findAll();
+        $categoryLst = $this->repository->categoryList();
         $categoryTree = [];
         foreach ($categoryLst as $category){
             $categoryTree[$category->pCategoryId][] = $category;

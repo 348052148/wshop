@@ -130,6 +130,7 @@ class ApiController extends BaseApiController {
     private function generateTree(&$tree,$categoryTree,$pid){
 
         foreach ($categoryTree[$pid] as $category){
+            $category->categoryPic = preg_replace('/img.ismbao.com/','weixin.ismbao.com',$category->categoryPic);
             $treeTemp = [
                 'title' => $category->categoryName,
                 'pic' => empty($category->categoryPic)?'':$category->categoryPic,
