@@ -36,4 +36,24 @@ class GoodsRepository extends AbstractCURDRepository {
         return $rowset;
     }
 
+    public function searchGoods($keyword=null,$class_id=null,$offset=0,$limit=10){
+        $select = new Select($this->tableGateway->getTable());
+
+        if($class_id!=null){
+            $select->where->equalTo('categoryId',$class_id);
+        }
+//
+        if($keyword != null){
+            //这种操作使索引失效
+            $select->where->like('title',"%".$keyword."%");
+        }
+
+
+        $select->offset(intval($offset))->limit(intval($limit));
+
+        $rowset = $this->tableGateway->selectWith($select);
+
+        return $rowset;
+    }
+
 }

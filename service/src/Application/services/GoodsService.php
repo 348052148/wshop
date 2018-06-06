@@ -74,10 +74,42 @@ class GoodsService  {
      * 获取商品列表
      * @return mixed
      */
-    public function goodsLst($page=0,$count=9){
+    public function goodsLst($goodsDto){
 //        $goodsLst = $this->repository->findAll();
 
-        $goodsLst = $this->repository->findList($page*$count);
+        $page = ($goodsDto['page'])?$goodsDto['page']:0;
+        $pageSize = ($goodsDto['pageSize'])?$goodsDto['pageSize']:9;
+
+        $goodsLst = $this->repository->findList($page*$pageSize,$pageSize);
+
+        $goodsArr = [];
+        foreach ($goodsLst as $goods){
+            $specifs = $this->specificatRepository->findBySku($goods->sku);
+
+            foreach ($specifs as $specif){
+                $goods->specifs[] = $specif;
+
+                if($specif->isDefault == 1){
+                    $goods->price = $specif->price;
+                    $goods->units = $specif->units;
+                }
+            }
+
+            array_push($goodsArr, $goods);
+        }
+
+        return $goodsArr;
+    }
+
+    public function searchGoodsList($goodsDto){
+        $page = ($goodsDto['page'])?$goodsDto['page']:0;
+        $pageSize = ($goodsDto['pageSize'])?$goodsDto['pageSize']:9;
+
+        $keyword = ($goodsDto['keyword'])?$goodsDto['keyword']:null;
+        $class_id = ($goodsDto['class_id'])?$goodsDto['class_id']:null;
+
+        $goodsLst = $this->repository->searchGoods($keyword,$class_id,$page*$pageSize,$pageSize);
+
 
         $goodsArr = [];
         foreach ($goodsLst as $goods){

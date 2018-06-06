@@ -41,7 +41,7 @@ class ApiController extends BaseApiController {
         //newGoodsList
         $goodsService = $this->microService->get('GoodsService');
 
-        $goodsList = $goodsService->goodsLst();
+        $goodsList = $goodsService->goodsLst([]);
 
         $data['newGoodsList'] = [
 //            ['sku'=>'20180607_001','title'=>'统一鲜橙多','price'=>'2.5','pic'=>'http://weixin.ismbao.com/tb/80x80/upload/201805/19/1526697380869576.png'],
@@ -108,7 +108,7 @@ class ApiController extends BaseApiController {
 
         $goodsService = $this->microService->get('GoodsService');
 
-        $goodsList = $goodsService->goodsLst($page);
+        $goodsList = $goodsService->goodsLst(['page'=>$page]);
 
         $data = [
           'newGoodsList' => []
@@ -520,9 +520,19 @@ class ApiController extends BaseApiController {
         ]
          */
         $page = $this->request->getQuery('page');
+
+        $keyword = $this->request->getQuery('keyword');
+
+        $categoryId = $this->request->getQuery('categoryId');
+
         $goodsService = $this->microService->get('GoodsService');
 
-        $goodsList = $goodsService->goodsLst($page);
+        $goodsList = $goodsService->searchGoodsList([
+            'keyword'=>$keyword,
+            'class_id'=>$categoryId,
+            'page'=>$page,
+            'pageSize' => 8
+        ]);
 
         $data = [
             'goodsList'=> [
